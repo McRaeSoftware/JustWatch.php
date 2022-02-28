@@ -1,0 +1,9 @@
+<script>
+$(document).ready(function()
+{
+  $("#top").click(function()
+  {
+    $("#sideBar").fadeToggle();
+  });
+});
+</script>

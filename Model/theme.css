@@ -1,0 +1,300 @@
+/*
+  Description: Custom CSS to override bootstrap CSS files
+  Author: David McRae & Oliver Dickens
+*/
+
+/* these are our css variables and sets our colour sheme*/
+:root
+{
+  font-family: 'Open Sans';
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --bg-danger: red;
+  --transition-speed: 600ms;
+  --transitionCard-speed: 400ms;
+}
+
+body
+{
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+}
+
+text
+{
+  color:White;
+}
+
+footer
+{
+  background-color: var(--bg-secondary);
+  padding: 0;
+}
+
+/* Page Navigation  */
+.page-link
+{
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.page-link:hover
+{
+  background-color: var(--bg-danger);
+  color: var(--text-primary);
+}
+
+body .form-control .input-group-text .custom-select
+{
+  background-color: var(--bg-primary);
+}
+
+body::-webkit-scrollbar
+{
+  width: .5rem;
+}
+
+body::-webkit-scrollbar-track
+{
+  background: var(--bg-secondary);
+}
+
+body::-webkit-scrollbar-thumb
+{
+  background: var(--bg-danger);
+}
+
+footer
+{
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+
+.container
+{
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+}
+
+/* these are our movie displayed classes*/
+/* these are our movie cards*/
+.card
+{
+  background-color: var(--bg-primary);
+  border:none;
+}
+
+.card img:hover
+{
+  box-shadow: 2px 4px var(--bg-danger);
+}
+
+/* the image*/
+.card img
+{
+  box-shadow: 2px 4px var(--bg-secondary);
+  max-width: 12rem;
+  min-width: 12rem;
+  min-height: 18rem;
+  max-height: 18rem;
+}
+
+/* font below movie*/
+.card-bottom
+{
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* these are our play movie screens */
+.playVideo
+{
+  width:100%;
+  margin-top: 2rem;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.playVideo video
+{
+  width:80%;
+}
+
+.videoDescription
+{
+  /* width:80% */
+}
+
+.videoPoster img
+{
+ border-radius: 0.5rem;
+ width: 15rem;
+}
+/* navbar essentials*/
+.navbar
+{
+  background-color: var(--bg-secondary);
+  z-index:100;
+  padding: 0;
+}
+.form-control:focus:hover
+{
+  background-color: var(--bg-primary);
+}
+.form-control
+{
+  background-color: var(--bg-primary);
+}
+.custom-select
+{
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+}
+#inputGroupPrepend
+{
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+}
+
+.list-group-item
+{
+  width:100%;
+  margin: 0;
+  padding: 20;
+  border: none;
+  min-height: 5rem;
+  background: var(--bg-secondary);
+
+  filter: grayscale(0%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.list-group-item span
+{
+      text-align: center;
+}
+
+.nav-link
+{
+  padding: none;
+}
+
+.list-group-item i
+{
+  color: var(--text-secondary);
+}
+.list-group-item span
+{
+  color: var(--text-secondary);
+}
+
+.list-group-item:hover
+{
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-primary);
+}
+
+.logo
+{
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  background: black;
+  letter-spacing: 0.3ch;
+  width: 100%;
+  padding: 1rem;
+}
+
+.sideBar
+{
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  display: none;
+}
+#top:a
+{
+  font-size: 1.5rem;
+}
+
+.logo i
+{
+  transform: rotate(0deg);
+  transition: var(--transition-speed);
+}
+
+.logo-text
+{
+  display: inline;
+  transition: var(--transition-speed);
+}
+
+.navbar:hover .logo i
+{
+  transform: rotate(-180deg);
+}
+
+/* Display no mobile search as this will only display on mobile screen sizes */
+#mobileSearch
+{
+  display:none;
+}
+
+/* Small screens mobile */
+@media only screen and (max-width: 1062px)
+{
+  #pcSearch
+  {
+    display:none;
+  }
+
+  #mobileSearch
+  {
+    display:block;
+  }
+}
+
+@media only screen and (max-width: 992px)
+{
+  .videoPoster
+  {
+    display:none;
+  }
+}
+
+/* Small screens mobile */
+@media only screen and (max-width: 450px)
+{
+  .list-group-item
+  {
+    background: #000;
+    transition: var(--transition-speed);
+  }
+  .videoPlayer
+  {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .col
+  {
+    /* min-width: 50%;  this is needed as the boostrap forces it to $row  */
+    justify-content: center;
+    align-items: center;
+  }
+  .card img
+  {
+    max-width: 10rem;
+    min-width: 10rem;
+    max-height: 15rem;
+    min-height: 15rem;
+  }
+
+}
