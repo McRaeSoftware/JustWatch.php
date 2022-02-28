@@ -1,0 +1,2 @@
+#Ignore the connection file
+connection.php
