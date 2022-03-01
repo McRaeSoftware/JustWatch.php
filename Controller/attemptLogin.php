@@ -13,6 +13,6 @@ if(!isset($_POST["LoginSubmit"]))
 else
 {
   include '../Model/login.php';
-  AttemptLogIn();
+  AttemptLogin();
 }
 ?>

@@ -1,7 +1,7 @@
 <?php //Login User
 function AttemptLogin()
 {
-  Require 'connection.php';
+Require 'connection.php';
 
   if (isset($_POST["LoginSubmit"]))
   {
@@ -38,15 +38,14 @@ function AttemptLogin()
       {
         // Password is incorrect
         $invalidError = "Invalid Credentials";
-        header('location: ../View/Login.php?error='.$invalidError);
+        header('location: ../View/login.php?error='.$invalidError);
       }
     }
     else
     {
       // no records found
       $invalidError = "Invalid Credentials";
-      header('location: ../View/Login.php?error='.$invalidError);
+      header('location: ../View/login.php?error='.$invalidError);
     }
   }
 }
-?>

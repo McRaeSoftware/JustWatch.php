@@ -6,7 +6,7 @@
  */
 
 
-Include '../Model/GetAllMovies.php';
+Include '../Model/getAllMovies.php';
 
 if(!isset($_GET['page']))
 {
