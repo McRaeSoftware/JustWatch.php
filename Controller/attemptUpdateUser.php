@@ -10,7 +10,7 @@ if(!isset($_POST["updateUserSubmit"]))
 }
 else
 {
-  include '../Model/JustWatchMethods.php';
+  include '../Model/updateUser.php';
 
   session_start();
   $userid = $_SESSION['userid'];

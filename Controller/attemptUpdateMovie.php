@@ -11,7 +11,7 @@ if(!isset($_POST['updateMovieSubmit']))
 }
 else
 {
-  include '../Model/JustWatchMethods.php';
+  include '../Model/updateMovie.php';
 
   session_start();
 

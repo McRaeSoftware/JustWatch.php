@@ -12,8 +12,7 @@ if(!isset($_POST["LoginSubmit"]))
 }
 else
 {
-include '../Model/JustWatchMethods.php';
-
-AttemptLogIn();
+  include '../Model/login.php';
+  AttemptLogIn();
 }
 ?>

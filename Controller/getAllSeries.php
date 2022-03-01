@@ -1,12 +1,10 @@
 <?php
 /*
-    Description: Action to get all series from the database.
+  Description: Action to get all series from the database.
 
-    Author: David McRae
- */
-
-
-Include '../Model/JustWatchMethods.php';
+  Author: David McRae
+*/
+Include '../Model/getAllSeries.php';
 
 if(!isset($_GET['page']))
 {

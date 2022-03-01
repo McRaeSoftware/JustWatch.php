@@ -14,7 +14,7 @@ if(!isset($seriesId) || !isset($seasonId) || !isset($episodeId))
 }
 else
 {
-  Include '../Model/JustWatchMethods.php';
+  Include '../Model/getEpisode.php';
 
   $series = GetEpisode($seriesId, $seasonId, $episodeId);
   $seriesArray = json_decode($series);

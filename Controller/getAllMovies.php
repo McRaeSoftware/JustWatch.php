@@ -6,7 +6,7 @@
  */
 
 
-Include '../Model/JustWatchMethods.php';
+Include '../Model/GetAllMovies.php';
 
 if(!isset($_GET['page']))
 {

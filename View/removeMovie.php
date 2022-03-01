@@ -47,7 +47,7 @@ echo "
                       </div>
                       <div class='modal-footer'>
                         <button type='button' class='btn btn-outline-warning' data-dismiss='modal'>No!</button>
-                        <a class='btn btn-outline-danger' role='button' href='../Controller/attemptRemoveMovie.php?id=".$movieArray[$i]->Movie_ID."'>DELETE</a>
+                        <a class='btn btn-outline-danger' role='button' href='../Controller/attemptDeleteMovie.php?id=".$movieArray[$i]->Movie_ID."'>DELETE</a>
                       </div>
                     </div>
                   </div>

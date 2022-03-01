@@ -1,9 +1,4 @@
 <?php
-/*
-    Description: Action to display a single movie record on its own page locate in the Movie file.
-
-    Author: Oliver Dickens
- */
 $seriesid = $_GET['id'];
 if(!isset($seriesid))
 {
@@ -11,7 +6,7 @@ if(!isset($seriesid))
 }
 else
 {
-  Include '../Model/JustWatchMethods.php';
+  Include '../Model/getSeries.php';
 
   $series = GetSeriesByID($seriesid);
   $seriesArray = json_decode($series);

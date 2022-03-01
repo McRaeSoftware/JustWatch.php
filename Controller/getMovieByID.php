@@ -1,9 +1,9 @@
 <?php
 /*
-    Description: Action to display a single movie record on its own page locate in the Movie file.
+  Description: Action to display a single movie
 
-    Author: David McRae
- */
+  Author: David McRae
+*/
 $movieid = $_GET['id'];
 if(!isset($movieid))
 {
@@ -11,7 +11,7 @@ if(!isset($movieid))
 }
 else
 {
-  Include '../Model/JustWatchMethods.php';
+  Include '../Model/getMovieByID.php';
 
   $movie = GetMovieByID($movieid);
   $movieArray = json_decode($movie);

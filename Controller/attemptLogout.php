@@ -5,7 +5,7 @@
 
     Author: David McRae
 */
-include '../Model/JustWatchMethods.php';
+include '../Model/logout.php';
 
 session_start();
 AttemptLogOut();

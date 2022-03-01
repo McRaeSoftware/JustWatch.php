@@ -11,7 +11,7 @@
   if(isset($_SESSION['username']))
   {
 
-  include '../Controller/getSeriesSeasons.php';
+  include '../Controller/getSeasons.php';
   include 'header.php';
   include 'navbar.php';
   ?>

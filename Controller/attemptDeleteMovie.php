@@ -1,6 +1,6 @@
 <?php
 /*
-    Description: Action for the delete button located in the remove movies file.
+    Description: Action for the delete button located in the delete movies file.
 
     Author: David McRae
  */
@@ -9,8 +9,8 @@ $movieid = $_GET['id'];
 if(isset($movieid) && $_SESSION['username'])
 {
 
-  include '../Model/JustWatchMethods.php';
-  RemoveMovieByID($movieid);
+  include '../Model/deleteMovie.php';
+  DeleteMovieByID($movieid);
 }
 else
 {

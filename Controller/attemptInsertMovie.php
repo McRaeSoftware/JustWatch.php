@@ -10,7 +10,7 @@ if(!isset($_POST['insertMovieSubmit']))
 }
 else
 {
- include '../Model/JustWatchMethods.php';
+ include '../Model/insertMovie.php';
 
  AttemptInsertMovie();
 }
