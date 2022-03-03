@@ -69,7 +69,7 @@ Author: David McRae, Oliver Dickens
 
   <div id="pcSearch" class="col-10 row no-gutters justify-content-center">
     <form class="form-inline col-10" method="GET">
-      <input class="form-control col-9 mr-1" type="search" placeholder="Search by Title" name="filter">
+      <input class="form-control col-9 mr-1" type="search" placeholder="Search by Title" name="filterByTitle">
       <button class="btn btn-danger col-2 " type="submit">Search</button>
     </form>
   </div>

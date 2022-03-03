@@ -1,0 +1,9 @@
+<script>
+$(document).ready(function()
+{
+  $("#filterByGenreButton").click(function()
+  {
+    $("#filterDiv").fadeToggle();
+  });
+});
+</script>

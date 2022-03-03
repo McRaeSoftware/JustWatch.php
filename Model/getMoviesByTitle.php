@@ -1,9 +1,9 @@
 <?php
-function GetMoviesByFilter($movieFilter)
+function GetMoviesByTitle($movieTitle)
 {
   require_once 'connection.php';
 
-  $sql = "SELECT * FROM Movie WHERE Title LIKE '%".$movieFilter."%' ORDER BY Title asc";
+  $sql = "SELECT * FROM Movie WHERE Title LIKE '%".$movieTitle."%' ORDER BY Title asc";
 
   $stmt = $connection->prepare($sql);
   $result = $stmt->fetch();
