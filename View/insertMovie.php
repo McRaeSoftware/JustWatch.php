@@ -40,9 +40,18 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
 
                   <div class='form-group input-group' form-group-lg>
                     <div class='input-group-prepend'>
-                      <span class='input-group-text' id='inputGroupPrepend'>Image</span>
+                      <span class='input-group-text' id='inputGroupPrepend'>Quality</span>
                     </div>
-                      <input class='form-control' type='text' name='image' placeholder='Path to Poster image' required>
+                      <input class='form-control' type='text' name='quality' placeholder='1080p' required>
+                  </div>
+
+                  <hr />
+
+                  <div class='form-group input-group' form-group-lg>
+                    <div class='input-group-prepend'>
+                      <span class='input-group-text' id='inputGroupPrepend'>Year</span>
+                    </div>
+                      <input class='form-control' type='text' name='year' placeholder='2020'>
                   </div>
 
                   <div class='form-group input-group'>
@@ -50,21 +59,56 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
                       <span class='input-group-text' id='inputGroupPrepend'>Decription</span>
                     </div>
                       </br>
-                      <textarea class='form-control' type='text' name='description' placeholder='Description' rows='5' required></textarea>
+                      <textarea class='form-control' type='text' name='description' placeholder='Description' rows='5'></textarea>
                   </div>
 
                   <div class='form-group input-group' form-group-lg>
                     <div class='input-group-prepend'>
                       <span class='input-group-text' id='inputGroupPrepend'>Genre</span>
                     </div>
-                      <input class='form-control' type='text' name='genre' placeholder='Genre' required>
+                      <input class='form-control' type='text' name='genre' placeholder='Genre'>
                   </div>
 
                   <div class='form-group input-group' form-group-lg>
                     <div class='input-group-prepend'>
-                      <span class='input-group-text' id='inputGroupPrepend'>Year</span>
+                      <span class='input-group-text' id='inputGroupPrepend'>Rating</span>
                     </div>
-                      <input class='form-control' type='text' name='year' placeholder='2020' required>
+                      <input class='form-control' type='text' name='rating' placeholder='7'>
+                  </div>
+
+                  <div class='form-group input-group' form-group-lg>
+                    <div class='input-group-prepend'>
+                      <span class='input-group-text' id='inputGroupPrepend'>Certification</span>
+                    </div>
+                      <input class='form-control' type='text' name='certification' placeholder='United Kingdom:18+'>
+                  </div>
+
+                  <div class='form-group input-group' form-group-lg>
+                    <div class='input-group-prepend'>
+                      <span class='input-group-text' id='inputGroupPrepend'>Runtime</span>
+                    </div>
+                      <input class='form-control' type='text' name='runtime' placeholder='90'>
+                  </div>
+
+                  <div class='form-group input-group' form-group-lg>
+                    <div class='input-group-prepend'>
+                      <span class='input-group-text' id='inputGroupPrepend'>Image</span>
+                    </div>
+                      <input class='form-control' type='text' name='image' placeholder='Path to Poster image'>
+                  </div>
+
+                  <div class='form-group input-group' form-group-lg>
+                    <div class='input-group-prepend'>
+                      <span class='input-group-text' id='inputGroupPrepend'>Director</span>
+                    </div>
+                      <input class='form-control' type='text' name='director' placeholder=''>
+                  </div>
+
+                  <div class='form-group input-group' form-group-lg>
+                    <div class='input-group-prepend'>
+                      <span class='input-group-text' id='inputGroupPrepend'>Cast</span>
+                    </div>
+                      <input class='form-control' type='text' name='cast' placeholder='United Kingdom:18+'>
                   </div>
 
                   <button class='form-control' type='submit' name='insertMovieSubmit'>Insert Movie</button>

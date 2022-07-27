@@ -8,6 +8,7 @@ Include '../Controller/session.php';
 Include 'header.php';
 Include 'navbar.php';
 Include '../Controller/getMovieByID.php';
+require '../Model/StringManipulation.php';
 ?>
 <body>
   <div class="container text-center mt-5 mb-3 pt-3">
@@ -27,13 +28,20 @@ Include '../Controller/getMovieByID.php';
           echo "<img src='".$movieArray->Image_link."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
         ?>
       </div>
-      <div class="videoDescription col-6">
+      <div class="videoDescription col-9">
         <?php
+          $UKCertification = string_between_two_string($movieArray->Certification, 'United Kingdom:', '/');
           echo "<div class='card-body'>";
           echo "<h2 class='movieTitle'>".$movieArray->Title."";
           echo "<h6 class='movieTitle text-muted'>".nl2br($movieArray->Description)."</h5>";
           echo "<h6 class='movieTitle'><b>Year: </b>".$movieArray->Year."";
           echo "<h6 class='movieTitle'><b>Genre: </b>".$movieArray->Genre."";
+          echo "<h6 class='movieTitle'><b>Rating: </b>".$movieArray->Rating."/10";
+          echo "<h6 class='movieTitle'><b>Certification: </b>".$UKCertification."";
+          echo "<h6 class='movieTitle'><b>Runtime: </b>".$movieArray->Runtime."";
+          echo "<h6 class='movieTitle'><b>Director: </b>".$movieArray->Director."";
+          echo "<h6 class='movieTitle'><b>Cast: </b><text class='show-read-more'>".$movieArray->Cast."</text>";
+          echo "<h6 class='movieTitle'><b>Quality: </b>".$movieArray->Quality."";
           echo "</div>";
         ?>
       </div>

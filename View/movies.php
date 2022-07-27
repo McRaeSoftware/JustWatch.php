@@ -154,6 +154,7 @@
 
                       echo "<div class='card-bottom'>";
                         echo "<br><class='movieTitle'>".$movieArray[$i]->Title." (".$movieArray[$i]->Year.")";
+                        echo "<br><class=''>".$movieArray[$i]->Rating." / 10";
                       echo "</div>";// close card-bottom
 
                     echo "</div>";// close card

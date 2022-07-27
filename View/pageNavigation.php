@@ -126,8 +126,4 @@ else if(substr( $url, 0, 22 ) === "/View/updateMovies.php")
   </div>
   ";
 }
-else
-{
-  echo "no page navigaion";
-}
-  ?>
+?>
