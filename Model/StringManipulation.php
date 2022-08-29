@@ -21,7 +21,7 @@ function LimitVisibleString($str)
 
       //if the string doesn't contain any space then it will cut without word basis.
       $str = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-      $str .= '... <a href="/this/story">Read More</a>';
+      $str .= '<a href="/this/story">Read More</a>';
   }
   return $str;
 }
@@ -47,7 +47,7 @@ $(document).ready(function()
 			let newStr = myStr.substring(0, maxLength);
 			let removedStr = myStr.substring(maxLength, $.trim(myStr).length);
 			$(this).empty().html(newStr);
-			$(this).append('<a href="javascript:void(0);" class="read-more">Show More</a>');
+			$(this).append('<a href="javascript:void(0);" class="read-more"> ... More</a>');
 			$(this).append('<p class="more-text">' + removedStr + '</p>');
 		}
 	});

@@ -26,18 +26,18 @@ class IMDB
      * Set the preferred language for the User Agent.
      */
     const IMDB_LANG = 'en-US,en;q=0.9';
-   
+
      /**
      * Set this to true if you want to start with normal search and
      * if you get no result, it will use the advanced method
      */
     const IMDB_SEARCH_ORIGINAL = true;
-    
+
     /**
      * Set the sensitivity for search results in percentage.
      */
     const IMDB_SENSITIVITY = 85;
-    
+
     /**
      * Define the timeout for cURL requests.
      */
@@ -105,7 +105,7 @@ class IMDB
     /**
      * @var string The string returned, if nothing is found.
      */
-    public static $sNotFound = 'n/A';
+    public static $sNotFound = 'N/A';
 
     /**
      * @var null|int The ID of the movie.
@@ -196,7 +196,7 @@ class IMDB
         if (null !== $iCache && (int) $iCache > 0) {
             $this->iCache = (int) $iCache;
         }
-        
+
         if ($this->fetchUrl($sSearch, self::IMDB_SEARCH_ORIGINAL)) {
             return true;
         }
@@ -252,8 +252,8 @@ class IMDB
                     $sParameters .= '&release_date=' . $fMatch[2] . '-01-01,' . $fMatch[2] . '-12-31';
                     $sSearch = preg_replace('~([^0-9+])\(?([0-9]{4})\)?~','', $sSearch);
                 }
-                
-                $this->sUrl = 'https://www.imdb.com/search/title/?title=' . rawurlencode(str_replace(' ', '+', $sSearch)) . $sParameters;               
+
+                $this->sUrl = 'https://www.imdb.com/search/title/?title=' . rawurlencode(str_replace(' ', '+', $sSearch)) . $sParameters;
             } else {
                 switch (strtolower($this->sSearchFor)) {
                     case 'movie':
@@ -271,16 +271,16 @@ class IMDB
                     default:
                         $sParameters = '&s=tt';
                 }
-                
+
                 if (preg_match('~([^0-9+])\(?([0-9]{4})\)?~', $sSearch, $fMatch)) {
                     $sYear = $fMatch[2];
                     $sTempSearch = preg_replace('~([^0-9+])\(?([0-9]{4})\)?~','', $sSearch);
                     $sSearch = $sTempSearch . ' (' . $sYear . ')';
                 }
-                
-                $this->sUrl = 'https://www.imdb.com/find?q=' . rawurlencode(str_replace(' ', '+', $sSearch)) . $sParameters;                
+
+                $this->sUrl = 'https://www.imdb.com/find?q=' . rawurlencode(str_replace(' ', '+', $sSearch)) . $sParameters;
             }
-            
+
             $bSearch    = true;
 
             // Was this search already performed and cached?
@@ -377,7 +377,7 @@ class IMDB
                         if ($sYear != $aReturned[4][$i]) {
                             continue;
                         }
-                        $sim = similar_text($sTempSearch, $sTitle, $perc); 
+                        $sim = similar_text($sTempSearch, $sTitle, $perc);
                     }
 
                     if (round($perc, 3) > round($fTempPercent, 3)) {
@@ -400,7 +400,7 @@ class IMDB
                     $this->sSource = null;
                     self::fetchUrl($sUrl);
 
-                    return true;                   
+                    return true;
                 }
             }
 
@@ -467,7 +467,7 @@ class IMDB
             $sMatch = IMDBHelper::matchRegex($this->sSource, self::IMDB_AKA, 1);
             if (false !== $sMatch) {
                 $aReturn[] = explode('|', IMDBHelper::cleanString($sMatch));
-                
+
                 return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound, $aReturn);
             }
         }
@@ -579,7 +579,7 @@ class IMDB
                 );
 
                 if ($aReturned) {
-                    $aReturn = [];                        
+                    $aReturn = [];
                     $aReturn[] = [
                         'metascore' => IMDBHelper::cleanString($aReturned[1][0]),
                         'reviews' => IMDBHelper::cleanString($aReturned[2][0]),
@@ -663,7 +663,7 @@ class IMDB
 
         return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound);
     }
-    
+
     /**
      * @return string “Aspect Ratio” or $sNotFound.
      */
@@ -936,7 +936,7 @@ class IMDB
             $sMatch = IMDBHelper::matchRegex($this->sSource, self::IMDB_CERTIFICATION, 1);
             if (false !== $sMatch) {
                 $aReturn[] = explode('|', IMDBHelper::cleanString($sMatch));
-                
+
                 return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound, $aReturn);
             }
         }
@@ -988,13 +988,13 @@ class IMDB
                 $bMatch = IMDBHelper::matchRegex($aMatch[1][0], self::IMDB_COMPANY);
                 if (count($bMatch[2])) {
                     foreach ($bMatch[2] as $i => $sName) {
-                        
+
                         $aReturn[] = '<a href="https://www.imdb.com/company/' . IMDBHelper::cleanString(
                         $bMatch[1][$i]
                         ) . '/"' . ($sTarget ? ' target="' . $sTarget . '"' : '') . '>' . IMDBHelper::cleanString(
                         $sName
                         ) . '</a>';
-                        
+
                     }
 
                     return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound, $aReturn);
@@ -1116,7 +1116,7 @@ class IMDB
                     return IMDBHelper::cleanString($sMatch);
                 }
             }
-            
+
         }
 
         return self::$sNotFound;
@@ -1169,7 +1169,7 @@ class IMDB
      *
      * @return array A list (name, url, year, country, type) with Distributors or $sNotFound.
      */
-    public function getDistributor($iLimit = 0, $bMore = true) 
+    public function getDistributor($iLimit = 0, $bMore = true)
     {
         if (true === $this->isReady) {
             $aMatch = IMDBHelper::matchRegex($this->sSource, self::IMDB_DISTRIBUTOR);
@@ -1195,7 +1195,7 @@ class IMDB
                     $bHaveMore = ($bMore && (count($aMatch[2]) > $iLimit));
 
                     return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound, $aReturn, $bHaveMore);
-                
+
                 }
             }
         }
@@ -1217,13 +1217,13 @@ class IMDB
                 $bMatch = IMDBHelper::matchRegex($aMatch[1][0], self::IMDB_DISTRIBUTORS);
                 if (count($bMatch[2])) {
                     foreach ($bMatch[2] as $i => $sName) {
-                        
+
                         $aReturn[] = '<a href="https://www.imdb.com/company/' . IMDBHelper::cleanString(
                         $bMatch[1][$i]
                         ) . '/"' . ($sTarget ? ' target="' . $sTarget . '"' : '') . '>' . IMDBHelper::cleanString(
                         $sName
                         ) . '</a>';
-                        
+
                     }
 
                     return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound, $aReturn);
@@ -1233,7 +1233,7 @@ class IMDB
 
         return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound);
     }
-    
+
     /**
      * @return string The episode title of the tv show or $sNotFound.
      */
@@ -1244,13 +1244,13 @@ class IMDB
                 $sMatch = IMDBHelper::matchRegex($this->sSource, self::IMDB_TITLE_EP, 1);
                 if (false !== $sMatch && "" !== $sMatch) {
                     return IMDBHelper::cleanString($sMatch);
-                }  
+                }
             }
         }
 
         return self::$sNotFound;
     }
-    
+
     /**
      * @return string A list with the genres or $sNotFound.
      */
@@ -1468,7 +1468,7 @@ class IMDB
 
         return self::$sNotFound;
     }
-    
+
     /**
      * @return string A list with the music composers or $sNotFound.
      */
@@ -1510,7 +1510,7 @@ class IMDB
 
         return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound);
     }
-    
+
     /**
      * @param int    $iLimit    How many photo images should be returned?
      * @param bool   $bMore     Add … if there are more cast members than printed.
@@ -1574,7 +1574,7 @@ class IMDB
                     $aReturned = IMDBHelper::matchRegex($sSource, '~title="(.*?)"\s+><img(?:.*)\s+src="(.*?)"\s+\/>~');
 
                     if ($aReturned) {
-                        
+
                         foreach ($aReturned[1] as $i => $strName) {
                             $aReturn[] = [
                                 'title'   => IMDBHelper::cleanString($strName),
@@ -1588,7 +1588,7 @@ class IMDB
                         $isPage = false;
                     }
 
-                    $page++;          
+                    $page++;
                 }
 
                 $anReturn   = [];
@@ -1615,7 +1615,7 @@ class IMDB
 
         return IMDBHelper::arrayOutput($this->bArrayOutput, $this->sSeparator, self::$sNotFound);
     }
-    
+
     /**
      * @return string A list with the plot keywords or $sNotFound.
      */
@@ -1973,12 +1973,12 @@ class IMDB
             $sMatch = IMDBHelper::matchRegex($this->sSource, self::IMDB_TYPE, 1);
             if (false !== $sMatch && "" !== $sMatch) {
                 return IMDBHelper::cleanString($sMatch);
-            }   
+            }
         }
 
         return self::$sNotFound;
     }
-    
+
     /**
      * @return string The IMDb URL.
      */
