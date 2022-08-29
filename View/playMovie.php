@@ -8,7 +8,7 @@ Include '../Controller/session.php';
 Include 'header.php';
 Include 'navbar.php';
 Include '../Controller/getMovieByID.php';
-require '../Model/StringManipulation.php';
+require '../Controller/StringManipulation.php';
 ?>
 <body>
   <div class="container text-center mt-5 mb-3 pt-3">
