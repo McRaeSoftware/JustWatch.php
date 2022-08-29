@@ -108,7 +108,7 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
                     <div class='input-group-prepend'>
                       <span class='input-group-text' id='inputGroupPrepend'>Cast</span>
                     </div>
-                      <input class='form-control' type='text' name='cast' placeholder='United Kingdom:18+'>
+                      <input class='form-control' type='text' name='cast' placeholder=''>
                   </div>
 
                   <button class='form-control' type='submit' name='insertMovieSubmit'>Insert Movie</button>

@@ -18,7 +18,10 @@ require '../Model/StringManipulation.php';
   </div>
   <div class="playVideo">
     <?php
-    echo "<video src='".$movieArray->Video_link."' type='video/mp4' autoplay controls/>";
+    echo "<video src='".$movieArray->Video_link."' type='video/mp4' autoplay controls>";
+      echo "<track src='".substr($movieArray->Video_link, 0, -4).".vtt' kind='subtitles' srclang='en' label='default' default>";
+      echo "<track src='".substr($movieArray->Video_link, 0, -4).".vtt' kind='subtitles' srclang='en' label='English'>";
+    echo "</video>"
     ?>
   </div>
   <div class="container mt-5 mb-5 pt-3">

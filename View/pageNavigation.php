@@ -8,7 +8,7 @@ else
   $page = $_GET['page'];
 }
 $url = $_SERVER['REQUEST_URI'];
-if(substr( $url, 0, 16 ) === "/View/movies.php")
+if(substr( $url, 0, 34 ) === "/Site/JustWatchphp/View/movies.php")
 {
   // MOVIES PAGE
     echo "
@@ -68,7 +68,7 @@ if(substr( $url, 0, 16 ) === "/View/movies.php")
     </div>
     ";
 }
-else if(substr( $url, 0, 22 ) === "/View/updateMovies.php")
+else if(substr( $url, 0, 40 ) === "/Site/JustWatchphp/View/updateMovies.php")
 {
   // ADMIN NAVIGATION FOR UPDATE MOVIES
   echo "
@@ -125,5 +125,8 @@ else if(substr( $url, 0, 22 ) === "/View/updateMovies.php")
     </ul>
   </div>
   ";
+}
+else {
+  echo "Only one Page";
 }
 ?>
