@@ -42,7 +42,7 @@ include 'navbar.php';
     <hr>
     <div class='row'>
       <div class='col-6 mt-5'>
-        <a class='btn btn-outline-danger btn-block' href='#'>Add Series</a>
+        <a class='btn btn-outline-danger btn-block' href='insertSeries.php'>Add Series</a>
       </div>
       <div class='col-6 mt-5'>
         <a class='btn btn-outline-danger btn-block' href='#'>Add Episode</a>
