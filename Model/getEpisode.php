@@ -6,7 +6,7 @@ function GetEpisode($seriesId, $seasonId, $episodeId)
   // SELECT all seeason id's where series id = series id
   $query = $connection->prepare
   ("
-    SELECT * FROM Series WHERE Series_ID = :seriesId AND Season_ID = :seasonId AND Episode_ID = :episodeId
+    SELECT * FROM Episode WHERE Series_ID = :seriesId AND Season_ID = :seasonId AND Episode_ID = :episodeId
   ");
 
   $success = $query->execute

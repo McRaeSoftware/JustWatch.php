@@ -6,7 +6,7 @@ function GetSeasons($seriesid)
   // SELECT all seeason id's where series id = series id
   $query = $connection->prepare
   ("
-    SELECT * FROM Series WHERE Series_ID = :seriesid GROUP BY Season_ID
+    SELECT * FROM Episode WHERE Series_ID = :seriesid GROUP BY Season_ID
   ");
 
   $success = $query->execute

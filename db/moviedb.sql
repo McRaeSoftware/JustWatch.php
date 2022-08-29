@@ -1049,16 +1049,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`User_ID`, `Name`, `Admin`, `Username`, `Password`) VALUES
-(1, 'David McRae', 1, 'McRae', '$2y$10$CWPH4unyIK5yiLISw37tredZKG4HU0tEt5Zh7BrAiZiACah9sBt8e'),
-(2, 'Oliver Dickens', 1, 'OD', '$2y$10$CWPH4unyIK5yiLISw37tredZKG4HU0tEt5Zh7BrAiZiACah9sBt8e'),
-(3, 'Flick', 0, 'Flick', '$2y$10$CWPH4unyIK5yiLISw37tredZKG4HU0tEt5Zh7BrAiZiACah9sBt8e'),
-(4, 'Guest', 0, 'Guest', '$2y$10$CWPH4unyIK5yiLISw37tredZKG4HU0tEt5Zh7BrAiZiACah9sBt8e');
-
---
 -- Indexes for dumped tables
 --
 
