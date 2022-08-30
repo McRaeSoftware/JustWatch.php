@@ -39,97 +39,113 @@ include_once 'imdb/imdb.class.php';
 // 'all', default
 
 //$searchCriteria = searchParameters($baseURL, $title, $year, $type);
-$title = "Goofy Movie";
-$searchFor = "movie";
-$year = "2000";
 
-$IMDB = new IMDB($title, null, $searchFor);
-
-if($IMDB->getYear() != $year)
+test();
+function test()
 {
-  $IMDB = new IMDB($title." (".$year.")", null, $searchFor);
+  $array = array("yer", "da", "sells", "EXTENDED", "Avon");
+  echo "</br></br>";
+  var_dump($array);
+  $array = array_diff($array, ["EXTENDED"]);
+  echo "</br></br>";
+  var_dump($array);
 }
 
-if($IMDB->isReady)
-{
-  // SERIES //
-  // Series_ID
 
-  // Series_Name
-  echo ($IMDB->getTitle());
-  echo "</br>";	echo "</br>";
-  // Year
-  echo ($IMDB->getYear());
-  echo "</br>";	echo "</br>";
-  // Genre
-  echo ($IMDB->getGenre());
-  echo "</br>";	echo "</br>";
-  // Description
-  $desc = $IMDB->getPlot();
-  if(strtolower($desc) == "n/a")
+function testIMDB()
+{
+  $title = "Goofy Movie";
+  $searchFor = "movie";
+  $year = "2000";
+
+  $IMDB = new IMDB($title, null, $searchFor);
+
+  if($IMDB->getYear() != $year)
   {
-      echo ($IMDB->getDescription());
+   $IMDB = new IMDB($title." (".$year.")", null, $searchFor);
   }
-  echo "</br>";	echo "</br>";
-  // Image_link
-  echo ($img = $IMDB->getPoster($sSize = 'big', $bDownload = false));
-  echo "<img src=".$img." alt='' />";
-  // Runtime
-  echo ($IMDB->getRuntime());
-  echo "</br>";	echo "</br>";
-  // Rating
-  echo ($IMDB->getRating());
-  echo "</br>";	echo "</br>";
-  // Certification
-  echo ($IMDB->getCertification());
-  echo "</br>";	echo "</br>";
-  // Cast
-  echo ($IMDB->getCastAndCharacter($iLimit = 0));
-  echo "</br>";	echo "</br>";
-  // Quality
-  // handled in the file name
+
+  if($IMDB->isReady)
+  {
+    // SERIES //
+    // Series_ID
+
+    // Series_Name
+    echo ($IMDB->getTitle());
+    echo "</br>";	echo "</br>";
+    // Year
+    echo ($IMDB->getYear());
+    echo "</br>";	echo "</br>";
+    // Genre
+    echo ($IMDB->getGenre());
+    echo "</br>";	echo "</br>";
+    // Description
+    $desc = $IMDB->getPlot();
+    if(strtolower($desc) == "n/a")
+    {
+        echo ($IMDB->getDescription());
+    }
+    echo "</br>";	echo "</br>";
+    // Image_link
+    echo ($img = $IMDB->getPoster($sSize = 'big', $bDownload = false));
+    echo "<img src=".$img." alt='' />";
+    // Runtime
+    echo ($IMDB->getRuntime());
+    echo "</br>";	echo "</br>";
+    // Rating
+    echo ($IMDB->getRating());
+    echo "</br>";	echo "</br>";
+    // Certification
+    echo ($IMDB->getCertification());
+    echo "</br>";	echo "</br>";
+    // Cast
+    echo ($IMDB->getCastAndCharacter($iLimit = 0));
+    echo "</br>";	echo "</br>";
+    // Quality
+    // handled in the file name
 
 
-  //  EPISODE //
-  // echo ($IMDB->getTitle());
-  // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getEpisodeTitle());
-  // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getDescription());
-  // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getPlot());
-  // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getYear());
+    //  EPISODE //
+    // echo ($IMDB->getTitle());
+    // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getEpisodeTitle());
+    // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getDescription());
+    // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getPlot());
+    // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getYear());
 
-  // MOVIE //
-	// echo "</br>";	echo "</br>";
-	// echo ($IMDB->getGenre());
-	// echo "</br>";	echo "</br>";
-	// echo ($IMDB->getYear());
-	// echo "</br>";	echo "</br>";
-	// echo ($IMDB->getRating());
-	// echo "</br>";	echo "</br>";
-	// echo ($IMDB->getRuntime());
-  // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getCertification());
-  // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getDirector());
-  // echo "</br>";	echo "</br>";
-  // // echo ($IMDB->getUserReview());
-  // // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getRating());
-  // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getCastAndCharacter($iLimit = 0));
-  // echo "</br>";	echo "</br>";
-  // echo ($IMDB->getCast($iLimit = 0));
-  // echo "</br>";	echo "</br>";
-  // echo ($img = $IMDB->getPoster($sSize = 'big', $bDownload = false));
-  // echo "<img src=".$img." alt='' />";
+    // MOVIE //
+  	// echo "</br>";	echo "</br>";
+  	// echo ($IMDB->getGenre());
+  	// echo "</br>";	echo "</br>";
+  	// echo ($IMDB->getYear());
+  	// echo "</br>";	echo "</br>";
+  	// echo ($IMDB->getRating());
+  	// echo "</br>";	echo "</br>";
+  	// echo ($IMDB->getRuntime());
+    // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getCertification());
+    // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getDirector());
+    // echo "</br>";	echo "</br>";
+    // // echo ($IMDB->getUserReview());
+    // // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getRating());
+    // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getCastAndCharacter($iLimit = 0));
+    // echo "</br>";	echo "</br>";
+    // echo ($IMDB->getCast($iLimit = 0));
+    // echo "</br>";	echo "</br>";
+    // echo ($img = $IMDB->getPoster($sSize = 'big', $bDownload = false));
+    // echo "<img src=".$img." alt='' />";
 
 
-}
-else
-{
-	echo 'Movie not found. 😞';
+  }
+  else
+  {
+  	echo 'Movie not found. 😞';
+  }
 }
 ?>
