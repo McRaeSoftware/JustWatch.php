@@ -8,7 +8,11 @@ Author: David McRae, Oliver Dickens
 include 'Controller/session.php';
 include 'View/header.php';
 ?>
-<style>
+<?php
+header("Location: View/login.php");
+exit();
+?>
+<!-- <style>
 
 body
 {
@@ -50,4 +54,4 @@ body
       <a class="cd-btn mt-2" href="View/login.php" data-type="page-transition">Login</a>
     </div>
 </body>
-</html>
+</html> -->

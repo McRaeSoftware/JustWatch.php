@@ -2,8 +2,9 @@
   Description: Custom CSS to override bootstrap CSS files
   Author: David McRae & Oliver Dickens
 */
-
-/* these are our css variables and sets our colour sheme*/
+/*--------------------------------------------------------------
+# CSS variables and sets our colour sheme
+--------------------------------------------------------------*/
 :root
 {
   font-family: 'Open Sans';
@@ -15,42 +16,41 @@
   --transition-speed: 600ms;
   --transitionCard-speed: 400ms;
 }
-
+/*--------------------------------------------------------------
+# Font Setting
+--------------------------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Nunito", sans-serif;
+}
 body
 {
+  font-family: "Open Sans", sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-secondary);
 }
-
-text
+.form-control .input-group-text .custom-select
+{
+  font-family: "Open Sans", sans-serif;
+}
+/*--------------------------------------------------------------
+# Container
+--------------------------------------------------------------*/
+.container
+{
+  margin-top: 60px;
+  transition: all 0.3s;
+  color: #ffffff;
+  padding-top: 5%;
+  letter-spacing: 1px;
+}
+/* TODO Is this needed? @David  */
+/* text
 {
   color:White;
-}
-
-footer
-{
-  background-color: var(--bg-secondary);
-  padding: 0;
-}
-
-/* Page Navigation  */
-.page-link
-{
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.page-link:hover
-{
-  background-color: var(--bg-danger);
-  color: var(--text-primary);
-}
-
-body .form-control .input-group-text .custom-select
-{
-  background-color: var(--bg-primary);
-}
-
+} */
+/*--------------------------------------------------------------
+# Body
+--------------------------------------------------------------*/
 body::-webkit-scrollbar
 {
   width: .5rem;
@@ -65,22 +65,19 @@ body::-webkit-scrollbar-thumb
 {
   background: var(--bg-danger);
 }
-
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
 footer
 {
-  background-color: var(--bg-secondary);
-  color: var(--text-secondary);
+  /* background-color: var(--bg-secondary);
+  color: var(--text-secondary); */
   padding: 2rem;
 }
-
-.container
-{
-  background-color: var(--bg-primary);
-  color: var(--text-secondary);
-}
-
-/* these are our movie displayed classes*/
-/* these are our movie cards*/
+/*--------------------------------------------------------------
+# Cards for Movies/Shows
+# Displayed classes
+--------------------------------------------------------------*/
 .card
 {
   background-color: var(--bg-primary);
@@ -92,7 +89,12 @@ footer
   box-shadow: 2px 4px var(--bg-danger);
 }
 
-/* the image*/
+.card-bottom/* font below movie*/
+{
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 .card img
 {
   box-shadow: 2px 4px var(--bg-secondary);
@@ -101,16 +103,34 @@ footer
   min-height: 18rem;
   max-height: 18rem;
 }
-
-/* font below movie*/
-.card-bottom
-{
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
+/* .card {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
+.card-header,
+.card-footer {
+  border-color: #ebeef4;
+  background-color: #fff;
+  color: #798eb3;
+  padding: 15px;
+}
+.card-title span {
+  color: #899bbd;
+  font-size: 14px;
+  font-weight: 400;
+}
+.card-body {
+  padding: 0 20px 20px 20px;
+}
+.card-img-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+} */
 
-/* these are our play movie screens */
+/*--------------------------------------------------------------
+# Play movie screens
+--------------------------------------------------------------*/
 .playVideo
 {
   width:100%;
@@ -137,7 +157,46 @@ footer
  border-radius: 0.5rem;
  width: 15rem;
 }
-/* navbar essentials*/
+/*--------------------------------------------------------------
+# LOGO's
+--------------------------------------------------------------*/
+.logo {
+  line-height: 1;
+}
+
+.logo img {
+  max-height: 26px;
+  margin-right: 6px;
+}
+
+.logo span {
+  font-size: 26px;
+  font-weight: 700;
+  color: #012970;
+  font-family: "Nunito", sans-serif;
+}
+/*--------------------------------------------------------------
+# Page Navigation
+--------------------------------------------------------------*/
+
+.page-link
+{
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+.page-link:hover
+{
+  background-color: var(--bg-danger);
+  color: var(--text-primary);
+}
+
+.form-control{
+  border-radius: 10em;
+}
+/*--------------------------------------------------------------
+# Navbar essentials
+--------------------------------------------------------------*/
+
 .navbar
 {
   background-color: var(--bg-secondary);
@@ -240,8 +299,41 @@ footer
 {
   transform: rotate(-180deg);
 }
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background: #4154f1;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
 
-/* Display no mobile search as this will only display on mobile screen sizes */
+.back-to-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #6776f4;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+/*--------------------------------------------------------------
+# Display no mobile search as this will only display on mobile screen sizes
+--------------------------------------------------------------*/
 #mobileSearch
 {
   display:none;
@@ -297,4 +389,41 @@ footer
     min-height: 15rem;
   }
 
+}
+/*--------------------------------------------------------------
+# Error 404
+--------------------------------------------------------------*/
+.error-404 {
+  padding: 30px;
+}
+
+.error-404 h1 {
+  font-size: 180px;
+  font-weight: 700;
+  color: #4154f1;
+  margin-bottom: 0;
+  line-height: 150px;
+}
+
+.error-404 h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #012970;
+  margin-bottom: 30px;
+}
+
+.error-404 .btn {
+  background: #51678f;
+  color: #fff;
+  padding: 8px 30px;
+}
+
+.error-404 .btn:hover {
+  background: #3e4f6f;
+}
+
+@media (min-width: 992px) {
+  .error-404 img {
+    max-width: 50%;
+  }
 }
