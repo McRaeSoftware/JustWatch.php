@@ -33,7 +33,7 @@ include 'sidebar.php';
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           View Movies
-          <a button type="button" class='btn btn-secondary' data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Movies" href='movies.php'><i class="bi bi-collection"></i></button></a>
+          <a button type="button" class='btn btn-secondary' data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Movies" href='testmovies.php'><i class="bi bi-collection"></i></button></a>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Add Movie

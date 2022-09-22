@@ -23,9 +23,7 @@
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <?php
-            if(!isset($_SESSION['username'])){
-            }
-              else{
+            if(isset($_SESSION['username'])){
               echo  "<span class='d-none d-md-block dropdown-toggle ps-2'>".$_SESSION['username']."</span>";
             }
            ?>
@@ -35,20 +33,25 @@
           <!-- User Dropdown -->
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <?php
-              if(!isset($_SESSION['admin == 1'])){
-                echo "<span>Standard User</span>";
+
+             <?php
+             if(isset($_SESSION['username']) && $_SESSION['admin'] === false)
+             {
+                   echo  "<span>".$_SESSION['username']."</span>";
+                   echo "<br><span>Standard User</span>";
               }
-                else{
-                // echo  "<span class='d-none d-md-block dropdown-toggle ps-2'>".$_SESSION['username']."</span>";
-                echo "<span>Admin User</span>";
-              }
+
+              if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
+              {
+                   echo  "<h6>".$_SESSION['username']."</h6>";
+                   echo "<span>Admin User</span>";
+             }
              ?>
+
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
-
             <li>
               <a class="dropdown-item d-flex align-items-center" href="accountManagement.php">
                 <i class="bi bi-person"></i>
@@ -58,14 +61,12 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../Controller/attemptLogout.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
             </li>
-
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
 

@@ -50,13 +50,12 @@
           ?>
           <section class="section">
               <?php
-              // old redundant max 5 per row code
-              // $perRow = 5;//10 works best on small screens:no single movie options
-              // $totalItems = sizeof($movieArray);
-              // $currentItem = 0;
-              //
-              // $rows = $totalItems / $perRow;
-              // $countPerRow = 0;
+              $perRow = 5;//10 works best on small screens:no single movie options
+              $totalItems = sizeof($movieArray);
+              $currentItem = 0;
+
+              $rows = $totalItems / $perRow;
+              $countPerRow = 0;
               echo "<div class='row'>";
                 for ($i=0 ; $i < sizeof($movieArray) ; $i++)
                 {

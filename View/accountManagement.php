@@ -1,26 +1,17 @@
 <?php
-/*
-    Description: Update User information
-
-    Author: David McRae
- */
-
-?>
-<!DOCTYPE html>
-<html>
-<!-- <head> -->
-<?php
 include '../Controller/session.php';
 include 'header.php';
 include 'sidebar.php';
 // include 'navbar.php';
-
 ?>
-<!-- </head> -->
-<title>Account Management</title>
 <body>
+  <main id="main" class="main">
 
-<!-- contains the visible web page-->
+    <div class="pagetitle">
+      <h1>Profile</h1>
+      <nav>
+      </nav>
+    </div><!-- End Page Title -->
 
 <!-- Container for the Form -->
 <div class="container">
@@ -71,7 +62,7 @@ if(isset($_GET['error']))
 <!-- End Form -->
 </div>
 <!-- End Form Container -->
-
+</main>
 <?php
 include 'footer.php';
 include '../Controller/bootstrapScript.php';
