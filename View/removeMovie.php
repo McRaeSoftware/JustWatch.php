@@ -10,10 +10,17 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
 
 echo "
 <body>
-    <main id='main' class='main'>
-      <section class='section'>
-        <div class='row'>
-          <h1 class='primaryDark'>Remove A Movie</h1>
+<main id='main' class='main'>
+  <div class='container primaryDark'>
+  <div class='pagetitle'>
+    <h1>Remove Movies</h1>
+    <nav>
+      <ol class='breadcrumb'>
+        <li class='breadcrumb-item'><a href='adminNavigation.php'>Admin</a></li>
+        <li class='breadcrumb-item active'><a href='removeMovie.php'>Remove</a></li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
           ";
 
     echo "
@@ -56,6 +63,9 @@ echo "
       </table>
     </div>
   </div>
+  </div>
+</section>
+</main>
   ";
 
   include 'footer.php';
@@ -63,9 +73,7 @@ echo "
   include '../Controller/ajaxScript.php';
   include '../Controller/navControl.js';
 echo "
-        </div>
-      </section>
-  </main>
+
 </body>
 ";
 }

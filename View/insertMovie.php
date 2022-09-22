@@ -3,7 +3,8 @@
 
 include '../Controller/session.php';
 include 'header.php';
-include 'navbar.php';
+include 'sidebar.php';
+// include 'navbar.php';
 if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
 {
   if(isset($_GET['error']))
@@ -13,12 +14,18 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
     echo $error;
   }
       echo "
-
       <body>
+      <main id='main' class='main'>
         <div class='container primaryDark'>
-          <div class='page-header'>
-              <h1 class='primaryDark'>Insert Movie</h1>
-          </div>
+        <div class='pagetitle'>
+          <h1>Insert Movie</h1>
+          <nav>
+            <ol class='breadcrumb'>
+              <li class='breadcrumb-item'><a href='adminNavigation.php'>Admin</a></li>
+              <li class='breadcrumb-item active'><a href='insertMovie.php'>Insert</a></li>
+            </ol>
+          </nav>
+        </div><!-- End Page Title -->
 
           <div class='container'>
 
@@ -115,6 +122,7 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
               </form>
           </div>
       </div>
+      </main>
       ";
       include 'footer.php';
       include '../Controller/bootstrapScript.php';

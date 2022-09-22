@@ -1,7 +1,8 @@
 <?php
 include '../Controller/session.php';
 include 'header.php';
-include 'navbar.php';
+// include 'navbar.php';
+include 'sidebar.php';
 //Error Reporting for the users
 if(isset($_GET['error']))
 {
@@ -13,25 +14,31 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
 {
 
 echo "
-<html>
-
 <body>
-<br>
-<div class='container primaryDark' >
-  <div class='page-header'>
-  <h1 class='primaryDark'>Alter Movie Records</h1>
-  </div>";
+<main id='main' class='main'>
+  <div class='container primaryDark'>
+  <div class='pagetitle'>
+    <h1>Alter Movie</h1>
+    <nav>
+      <ol class='breadcrumb'>
+        <li class='breadcrumb-item'><a href='adminNavigation.php'>Admin</a></li>
+        <li class='breadcrumb-item active'><a href='updateMovies.php'>Alter</a></li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  ";
 if (isset($_GET['id']))
 {
   $movieid = $_GET['id'];
   include '../Controller/getMovieByID.php';
 
-  echo "<a class='btn btn-outline-info' href='alterMovies.php'>Return</a><br><br>";
+  echo "<a class='btn btn-outline-info' href='alterMovies.php'>Back</a><br><br>";
   echo "<form class='form-group needs-validation' method='POST' action='../Controller/attemptUpdateMovie.php?movieid=".$movieid."' enctype='multipart/form-data' novalidate>
           <div class='row'>
             <div class='col-md-4'>
-              <div class='card form-group input-group' form-group-lg>
-                <img src='".$movieArray->Image_link."' class='card-img-top' alt='Movie Poster' onerror=this.src='images/film.placeholder.poster.jpg'>
+              <div class='card' form-group-lg>
+                <img src='".$movieArray->Image_link."' style='width: 24rem; height: 32rem;'' class='card-img-top' alt='Movie Poster' onerror=this.src='images/film.placeholder.poster.jpg'>
                 </div>
             </div>";
 
@@ -120,7 +127,10 @@ else
     }
     echo "</table>";
 }
-echo "</div></div>";
+echo "</div>
+</div>
+</main>
+";
 include 'footer.php';
 include '../Controller/bootstrapScript.php';
 include '../Controller/ajaxScript.php';

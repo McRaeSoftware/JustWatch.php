@@ -12,7 +12,9 @@
 <?php
 include '../Controller/session.php';
 include 'header.php';
-include 'navbar.php';
+include 'sidebar.php';
+// include 'navbar.php';
+
 ?>
 <!-- </head> -->
 <title>Account Management</title>
