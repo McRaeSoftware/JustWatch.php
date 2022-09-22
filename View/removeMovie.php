@@ -2,23 +2,22 @@
 
 include '../Controller/session.php';
 include 'header.php';
-include 'navbar.php';
+// include 'navbar.php';
+include 'sidebar.php';
 if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
 {
   include '../Controller/getAllMovies.php';
 
 echo "
-<html>
 <body>
-  <div class='container primaryDark'>
-    <div class='page-header'>
+    <main id='main' class='main'>
+      <section class='section'>
+        <div class='row'>
           <h1 class='primaryDark'>Remove A Movie</h1>
-    </div>
-    <div class='container'>
-  ";
+          ";
 
     echo "
-    <table class='table border border-dark text-center mt-4'>
+    <table class='table border border-dark'>
       <thead class='thead-dark'>
         <tr>
           <th scope='col'>Movie ID</th>
@@ -64,8 +63,10 @@ echo "
   include '../Controller/ajaxScript.php';
   include '../Controller/navControl.js';
 echo "
+        </div>
+      </section>
+  </main>
 </body>
-</html>
 ";
 }
 else

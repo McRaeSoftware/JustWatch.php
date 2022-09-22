@@ -10,7 +10,7 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
     <!-- Search functionality -->
-    <div id="pcSearch" class="search-bar col-6 ">
+    <div id="pcSearch" class="search-bar col-6 pt-3">
       <form class="search-form d-flex align-items-center" method="GET" action="#">
         <input class="form-control" type="search" placeholder="Search by Title" name="filterByTitle">
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>

@@ -49,10 +49,8 @@ require '../Controller/StringManipulation.php';
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="embed-responsive embed-responsive-16by9">
-
             <?php
             echo "<video src='".$movieArray->Video_link."' type='video/mp4' autoplay controls>";
             echo "<track src='".substr($movieArray->Video_link, 0, -4).".vtt' kind='subtitles' srclang='en' label='default' default>";
