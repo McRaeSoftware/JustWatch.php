@@ -6,7 +6,8 @@ Description: this is the video player for movies and tv shows
 */
 Include '../Controller/session.php';
 Include 'header.php';
-Include 'navbar.php';
+Include 'sidebar.php';
+// Include 'testnavbar.php';
 Include '../Controller/getMovieByID.php';
 require '../Controller/StringManipulation.php';
 ?>

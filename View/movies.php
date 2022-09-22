@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!--<head>-->
 <?php
 /*
     Description: JustWatch Movies for free viewing.
@@ -21,101 +20,29 @@
     include '../Controller/getMoviesByTitle.php';
   }
   include 'header.php';
-  include 'navbar.php';
+  include 'sidebar.php';
+  // include 'testnavbar.php';
   ?>
-<!-- </head> -->
+
 <body>
-  <title>
-    Movies
-  </title>
-  <div class="container mt-2">
-      <div id="mobileSearch" class="row no-gutters justify-content-center">
-        <form class="form-inline row m-2" method="GET">
-          <input class="form-control col" type="search" placeholder="Search by Title" name="filterByTitle">
-          <button class="btn btn-danger col-2" type="submit"><i class="fas fa-search"></i></button>
-        </form>
-      </div>
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Movies</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Movies</a></li>
+          <!-- <li class="breadcrumb-item">Components</li> -->
+          <!-- <li class="breadcrumb-item active">Cards</li> -->
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
 
 
-      <div class="row col-12 no-gutters" style="display:inline-block;">
-          <button id="filterByGenreButton" class="btn btn-danger col-2 m-2 float-right">Filter</button>
-        </div>
+    <?php
+    include 'pageNavigation.php';
+    ?>
 
-  <div style="display:none;" id="filterDiv" class="container mt-2 row col-12 no-gutters">
-  <form class="m-2 row text-center justify-content-center" method="POST">
-      <div class="btn-group-toggle" data-toggle="buttons">
-
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Action
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Adventure
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Animation
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Comedy
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Crime
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">DC
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Drama
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Fantasy
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Family
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Marvel
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Romance
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Sci-Fi
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Thriller
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">History
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Documentary
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Mystery
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Horror
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Biography
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Music
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Sport
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">War
-        </label>
-        <label class="btn btn-outline-danger m-2">
-          <input type="checkbox" name="genre[]" checked="">Western
-        </label>
-
-      </div>
-      <button class="btn btn-danger m-2" type="submit">Search By Genre</button>
-    </form>
-  </div>
 
   </div>
     <?php
@@ -127,9 +54,8 @@
           }
           ?>
             <div class="container text-center mt-2">
-              <br><h1>Movies</h1><br>
               <?php
-              include 'pageNavigation.php';
+
               //TODO: Expansion: add Bookmarked button to add to watch list
 
 
@@ -150,7 +76,6 @@
 
                     echo "<div class='card'>"; // Open card div
                       echo "<a href='playMovie.php?id=".$movieArray[$i]->Movie_ID."'> <img src='".$movieArray[$i]->Image_link."'  alt='".$movieArray[$i]->Movie_ID."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
-
 
                       echo "<div class='card-bottom'>";
                         echo "<br><class='movieTitle'>".$movieArray[$i]->Title." (".$movieArray[$i]->Year.")";
@@ -179,7 +104,9 @@
           include '../Controller/ajaxScript.php';
           include '../Controller/navControl.js';
           include '../Controller/toggleFilter.js';
+
           ?>
+        </main>
     </body>
 <?php
 }

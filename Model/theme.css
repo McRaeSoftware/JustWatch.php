@@ -3,18 +3,29 @@
   Author: David McRae & Oliver Dickens
 */
 /*--------------------------------------------------------------
-# CSS variables and sets our colour sheme
+# General
 --------------------------------------------------------------*/
 :root
 {
+  scroll-behavior: smooth;
   font-family: 'Open Sans';
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
   --bg-primary: #23232e;
   --bg-secondary: #141418;
   --bg-danger: red;
+  --bg-info: teal;
   --transition-speed: 600ms;
   --transitionCard-speed: 400ms;
+}
+a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-secondary);
+  text-decoration: none;
 }
 /*--------------------------------------------------------------
 # Font Setting
@@ -43,11 +54,21 @@ body
   padding-top: 5%;
   letter-spacing: 1px;
 }
-/* TODO Is this needed? @David  */
-/* text
-{
-  color:White;
-} */
+/*--------------------------------------------------------------
+# Main
+--------------------------------------------------------------*/
+#main {
+  margin-top: 60px;
+  padding: 20px 30px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 1199px) {
+  #main {
+    padding: 20px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Body
 --------------------------------------------------------------*/
@@ -63,22 +84,35 @@ body::-webkit-scrollbar-track
 
 body::-webkit-scrollbar-thumb
 {
-  background: var(--bg-danger);
+  background: var(--bg-info);
 }
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-footer
-{
-  /* background-color: var(--bg-secondary);
-  color: var(--text-secondary); */
-  padding: 2rem;
+
+.footer {
+  padding: 20px 0;
+  font-size: 14px;
+  transition: all 0.3s;
+  border-top: 1px solid #cddfff;
+}
+
+.footer .copyright {
+  text-align: center;
+  color: #012970;
+}
+
+.footer .credits {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 13px;
+  color: #012970;
 }
 /*--------------------------------------------------------------
 # Cards for Movies/Shows
 # Displayed classes
 --------------------------------------------------------------*/
-.card
+/* .card
 {
   background-color: var(--bg-primary);
   border:none;
@@ -86,10 +120,10 @@ footer
 
 .card img:hover
 {
-  box-shadow: 2px 4px var(--bg-danger);
-}
-
-.card-bottom/* font below movie*/
+  box-shadow: 2px 4px var(--bg-info);
+} */
+/* font below movie*/
+/* .card-bottom
 {
   font-size: 12px;
   font-weight: bold;
@@ -102,7 +136,9 @@ footer
   min-width: 12rem;
   min-height: 18rem;
   max-height: 18rem;
-}
+} */
+
+
 /* .card {
   margin-bottom: 30px;
   border: none;
@@ -186,7 +222,7 @@ footer
 }
 .page-link:hover
 {
-  background-color: var(--bg-danger);
+  background-color: var(--bg-info);
   color: var(--text-primary);
 }
 
@@ -197,6 +233,28 @@ footer
 # Navbar essentials
 --------------------------------------------------------------*/
 
+/* New */
+.nav-tabs-bordered {
+  border-bottom: 2px solid #ebeef4;
+}
+
+.nav-tabs-bordered .nav-link {
+  margin-bottom: -2px;
+  border: none;
+  color: #2c384e;
+}
+
+.nav-tabs-bordered .nav-link:hover,
+.nav-tabs-bordered .nav-link:focus {
+  color: #4154f1;
+}
+
+.nav-tabs-bordered .nav-link.active {
+  background-color: #fff;
+  color: #4154f1;
+  border-bottom: 2px solid #4154f1;
+}
+/* Old */
 .navbar
 {
   background-color: var(--bg-secondary);
@@ -299,6 +357,8 @@ footer
 {
   transform: rotate(-180deg);
 }
+
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

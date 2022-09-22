@@ -9,7 +9,8 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
 {
 
 include 'header.php';
-include 'navbar.php';
+// include 'navbar.php';
+include 'sidebar.php';
 ?>
 <body>
   <div class="container text-center pb-5">
@@ -19,7 +20,7 @@ include 'navbar.php';
     <!-- Site Navigation -->
     <div class='row'>
       <div class='col-12'>
-        <a class='btn btn-outline-danger btn-block' href='movies.php'>View Movies</a>
+        <a class='btn btn-outline-primary btn-block' href='movies.php'>View Movies</a>
       </div>
     </div>
 
