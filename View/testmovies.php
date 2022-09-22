@@ -61,7 +61,7 @@
                 {
                   echo "<div class='col'>";
                     echo "<div class='card'>";
-                      echo "<a href='playMovie.php?id=".$movieArray[$i]->Movie_ID."'> <img src='".$movieArray[$i]->Image_link."' style='width: 18rem; height: 22rem;''  alt='".$movieArray[$i]->Movie_ID."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
+                      echo "<a href='playMovie.php?id=".$movieArray[$i]->Movie_ID."'> <img src='".$movieArray[$i]->Image_link."'   alt='".$movieArray[$i]->Movie_ID."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
                         echo "<div class='card-body'>";
                         echo "<br><h8 class='card-title'>".$movieArray[$i]->Title." (".$movieArray[$i]->Year.")</h8>";
                         echo "<p class='card-text'>".$movieArray[$i]->Rating." / 10</p>";
