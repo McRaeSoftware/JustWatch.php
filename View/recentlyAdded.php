@@ -14,12 +14,12 @@
 
       if(!isset($_GET['filterByTitle']))
       {
-        include '../Controller/getAllMovies.php';
+        include '../Controller/getMoviesByDateAdded.php';
       }
       else
       {
         $movieFilter = $_GET['filterByTitle'];
-        include '../Controller/getMoviesByTitle.php';
+        include '../Controller/getMoviesByDateAdded.php';
       }
       include 'header.php';
       include 'sidebar.php';
@@ -27,30 +27,19 @@
       ?>
       <main id="main" class="main">
         <div class="pagetitle">
-          <h1>Movies</h1>
+          <h1>Recently Added</h1>
           <nav>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Movies</a></li>
+              <li class="breadcrumb-item"><a href="#">New</a></li>
               <!-- <li class="breadcrumb-item">Components</li> -->
               <!-- <li class="breadcrumb-item active">Cards</li> -->
             </ol>
           </nav>
         </div><!-- End Page Title -->
-          <div class="row pb-4 pt-4">
-            <div class="col-lg-6">
-              <?php
-              include 'filterGenre.php';
-              ;
-              ?>
-              </div>
+        <?php
+        include 'pageNavigation.php';
+        ?>
 
-            <div class="col-lg-6">
-              <?php
-
-              include 'pageNavigation.php';
-              ?>
-              </div>
-          </div>
         <?php
         //Error Reporting for the users
         if(isset($_GET['error']))
@@ -61,12 +50,12 @@
           ?>
           <section class="section">
               <?php
-              // $perRow = 5;//10 works best on small screens:no single movie options
-              // $totalItems = sizeof($movieArray);
-              // $currentItem = 0;
-              //
-              // $rows = $totalItems / $perRow;
-              // $countPerRow = 0;
+              $perRow = 5;//10 works best on small screens:no single movie options
+              $totalItems = sizeof($movieArray);
+              $currentItem = 0;
+
+              $rows = $totalItems / $perRow;
+              $countPerRow = 0;
               echo "<div class='row'>";
                 for ($i=0 ; $i < sizeof($movieArray) ; $i++)
                 {

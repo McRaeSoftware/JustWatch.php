@@ -42,34 +42,34 @@
 
         <?php
         //Error Reporting for the users
-        if(isset($_GET['error']))
-          {
-            $error = $_GET['error'];
-            echo $error;
-          }
-          ?>
-          <section class="section">
+        // if(isset($_GET['error']))
+        //   {
+        //     $error = $_GET['error'];
+        //     echo $error;
+        //   }
+        //   ?>
+           <section class="section">
               <?php
-              $perRow = 5;//10 works best on small screens:no single movie options
-              $totalItems = sizeof($movieArray);
-              $currentItem = 0;
-
-              $rows = $totalItems / $perRow;
-              $countPerRow = 0;
-              echo "<div class='row'>";
-                for ($i=0 ; $i < sizeof($movieArray) ; $i++)
-                {
-                  echo "<div class='col'>";
-                    echo "<div class='card'>";
-                      echo "<a href='playMovie.php?id=".$movieArray[$i]->Movie_ID."'> <img src='".$movieArray[$i]->Image_link."'   alt='".$movieArray[$i]->Movie_ID."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
-                        echo "<div class='card-body'>";
-                        echo "<br><h8 class='card-title'>".$movieArray[$i]->Title." (".$movieArray[$i]->Year.")</h8>";
-                        echo "<p class='card-text'>".$movieArray[$i]->Rating." / 10</p>";
-                      echo "</div>";// close card body
-                    echo "</div>";// close card
-                  echo "</div>";// close col
-                  }
-               echo "</div>";// close row
+              // $perRow = 5;//10 works best on small screens:no single movie options
+              // $totalItems = sizeof($movieArray);
+              // $currentItem = 0;
+              //
+              // $rows = $totalItems / $perRow;
+              // $countPerRow = 0;
+              // echo "<div class='row'>";
+              //   for ($i=0 ; $i < sizeof($movieArray) ; $i++)
+              //   {
+              //     echo "<div class='col'>";
+              //       echo "<div class='card'>";
+              //         echo "<a href='playMovie.php?id=".$movieArray[$i]->Movie_ID."'> <img src='".$movieArray[$i]->Image_link."'   alt='".$movieArray[$i]->Movie_ID."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
+              //           echo "<div class='card-body'>";
+              //           echo "<br><h8 class='card-title'>".$movieArray[$i]->Title." (".$movieArray[$i]->Year.")</h8>";
+              //           echo "<p class='card-text'>".$movieArray[$i]->Rating." / 10</p>";
+              //         echo "</div>";// close card body
+              //       echo "</div>";// close card
+              //     echo "</div>";// close col
+              //     }
+              //  echo "</div>";// close row
 
               // include 'pageNavigation.php';
 

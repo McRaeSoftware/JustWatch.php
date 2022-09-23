@@ -1,6 +1,6 @@
 <!-- Pagination with chevrons -->
 <nav aria-label="Page navigation example">
-  <ul class="pagination">
+  <ul class="pagination flex-row">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
@@ -146,6 +146,6 @@ else if(substr( $url, 0, 40 ) === "/Site/JustWatchphp/View/updateMovies.php")
   ";
 }
 else {
-  echo "Only one Page";
+  // echo "Only one Page";
 }
 ?>

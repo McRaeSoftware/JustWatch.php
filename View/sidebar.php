@@ -79,7 +79,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="page-underconstruction.php">
+        <a class="nav-link collapsed" href="recentlyAdded.php">
           <i class="bi bi-grid"></i>
           <span>Recently Added</span>
         </a>
@@ -92,7 +92,7 @@
       </li><!-- End Watch List Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="testmovies.php">
+        <a class="nav-link collapsed" href="movies.php">
           <i class="bi bi-badge-hd"></i>
           <span>Movies</span>
         </a>

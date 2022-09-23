@@ -36,21 +36,10 @@
             </ol>
           </nav>
         </div><!-- End Page Title -->
-          <div class="row pb-4 pt-4">
-            <div class="col-lg-6">
-              <?php
-              include 'filterGenre.php';
-              ;
-              ?>
-              </div>
+        <?php
+        include 'pageNavigation.php';
+        ?>
 
-            <div class="col-lg-6">
-              <?php
-
-              include 'pageNavigation.php';
-              ?>
-              </div>
-          </div>
         <?php
         //Error Reporting for the users
         if(isset($_GET['error']))
