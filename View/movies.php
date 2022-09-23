@@ -47,7 +47,7 @@
             <div class="col-lg-6">
               <?php
 
-              include 'pageNavigation.php';
+              include 'pagination.php';
               ?>
               </div>
           </div>
