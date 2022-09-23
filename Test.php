@@ -40,8 +40,63 @@ include_once 'imdb/imdb.class.php';
 
 //$searchCriteria = searchParameters($baseURL, $title, $year, $type);
 
-test();
-function test()
+//testDirSearch();
+echo "</br></br>";
+echo "</br></br>";
+
+//moveAllFiles("/media/pi/server.pii.at/Site/JustWatchphp/View/Movies/");
+
+function moveAllFiles($dir)
+{
+  $takeFrom = "/media/pi/server.pii.at/Site/JustWatchphp/View/Movies";
+  $moveTo = "/media/pi/server.pii.at/Site/JustWatchphp/MoviesToBeAdded/";
+  $array = array_diff(scandir($dir), array('.', '..'));
+
+  foreach ($array as &$item)
+  {
+    $item = $dir . $item;
+  }
+  unset($item);
+  foreach ($array as $item)
+  {
+    if (is_dir($item))
+    {
+     $array = array_merge($array, moveAllFiles($item . DIRECTORY_SEPARATOR));
+    }
+  }
+
+  foreach ($array as $item)
+  {
+    $filename = explode("/",$item);
+    rename($item, $moveTo.'/'.end($filename));
+  }
+  return $array;
+}
+
+function testDirSearch()
+{
+  $takeFrom = "/media/pi/server.pii.at/Site/JustWatchphp/View/Movies";
+  $moveTo = "/media/pi/server.pii.at/Site/JustWatchphp/MoviesToBeAdded/";
+  $folders = scandir($takeFrom);
+  echo "</br></br>";
+  var_dump($folders);
+  echo "</br></br>";
+  $folders = array_diff(scandir($takeFrom), array('.', '..'));
+  foreach($folders as $folder)
+  {
+    $files = scandir($folder);
+    echo "</br></br>";
+    var_dump($files);
+    echo "</br></br>";
+    foreach($files as $file)
+    {
+      echo "</br>".$file."</br>";
+    }
+  }
+    //rename($takeFrom.'/*.mp4 *.srt *.vtt', $moveTo.'/'.$file);
+}
+
+function testExtended()
 {
   $array = array("yer", "da", "sells", "EXTENDED", "Avon");
   echo "</br></br>";

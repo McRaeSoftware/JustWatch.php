@@ -29,7 +29,7 @@ else
           $parts = explode(".", $files[$i]);
 
           // Use This line to remove specific words from the file names
-          $parts = array_diff($parts, ["EXTENDED"]);
+          $parts = array_diff($parts, ["EXTENDED", UNRATED]);
 
           for($j=0 ; $j < sizeof($parts) ; $j++)
           {
