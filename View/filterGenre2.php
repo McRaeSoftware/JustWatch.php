@@ -1,6 +1,4 @@
       <form>
-        <div class="col-lg-6">
-
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Filter & Sort Search</h5>
@@ -147,5 +145,4 @@
               </div><!-- End Accordion without outline borders -->
 
             </div>
-        </div>
       </form>

@@ -28,19 +28,20 @@
           </nav>
         </div><!-- End Page Title -->
 
-          <div class="row pb-4 pt-4">
-            <div class="col-lg-6">
+          <div class="row ">
+            <div class="col-lg-6 pb-4 pt-4">
               <?php
-              include 'filterGenre.php';
+              // include 'filterGenre.php';
+              include 'filterGenre2.php';
               ?>
               </div>
 
-            <div class="col-lg-6">
+            <!-- <div class="col-lg-6"> -->
               <?php
               //include 'pageNavigation.php'
               //include '../Controller/getPagination.php';
               ?>
-              </div>
+              <!-- </div> -->
           </div>
         <?php
         //Error Reporting for the users

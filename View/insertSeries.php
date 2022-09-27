@@ -109,6 +109,5 @@ if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
 else
 {
   header("Location: ../index.php?error=ACCESS DENIED");
-  //TODO: error when not logged in-displays error and dosent relocate user to index
 }
 ?>
