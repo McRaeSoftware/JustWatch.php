@@ -2,52 +2,43 @@
 <html>
   <body>
     <?php
-    //TODO: Expansion: add Bookmarked button to add to watch list
-    /*
-        Description: JustWatch Movies for free viewing.
-        Author: David McRae
-    */
       include '../Controller/session.php';
-
-      if(isset($_SESSION['username']))
-      {
-
-      if(!isset($_GET['filterByTitle']))
-      {
-        include '../Controller/getAllMovies.php';
-      }
-      else
-      {
-        $movieFilter = $_GET['filterByTitle'];
-        include '../Controller/getMoviesByTitle.php';
-      }
-      include 'header.php';
-      include 'sidebar.php';
-      // include 'testnavbar.php';
+        if(isset($_SESSION['username']))
+        {
+          if(!isset($_GET['filterByTitle']))
+          {
+            include '../Controller/getAllMovies.php';
+          }
+          else
+          {
+            $movieFilter = $_GET['filterByTitle'];
+            include '../Controller/getMoviesByTitle.php';
+          }
+          include 'header.php';
+          include 'sidebar.php';
+          // include 'testnavbar.php';
       ?>
       <main id="main" class="main">
         <div class="pagetitle">
           <h1>Movies</h1>
           <nav>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Movies</a></li>
-              <!-- <li class="breadcrumb-item">Components</li> -->
-              <!-- <li class="breadcrumb-item active">Cards</li> -->
+              <li class="breadcrumb-item active"><a href="#">Movies</a></li>
             </ol>
           </nav>
         </div><!-- End Page Title -->
+
           <div class="row pb-4 pt-4">
             <div class="col-lg-6">
               <?php
               include 'filterGenre.php';
-              ;
               ?>
               </div>
 
             <div class="col-lg-6">
               <?php
-
-              include 'pagination.php';
+              //include 'pageNavigation.php'
+              //include '../Controller/getPagination.php';
               ?>
               </div>
           </div>
@@ -70,9 +61,9 @@
               echo "<div class='row'>";
                 for ($i=0 ; $i < sizeof($movieArray) ; $i++)
                 {
-                  echo "<div class='col'>";
+                  echo "<div class='col-sm'>";
                     echo "<div class='card'>";
-                      echo "<a href='playMovie.php?id=".$movieArray[$i]->Movie_ID."'> <img src='".$movieArray[$i]->Image_link."'   alt='".$movieArray[$i]->Movie_ID."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
+                      echo "<a href='viewMovie.php?id=".$movieArray[$i]->Movie_ID."'> <img src='".$movieArray[$i]->Image_link."'   alt='".$movieArray[$i]->Movie_ID."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
                         echo "<div class='card-body'>";
                         echo "<br><h8 class='card-title'>".$movieArray[$i]->Title." (".$movieArray[$i]->Year.")</h8>";
                         echo "<p class='card-text'>".$movieArray[$i]->Rating." / 10</p>";
@@ -83,7 +74,6 @@
                echo "</div>";// close row
 
               // include 'pageNavigation.php';
-
               ?>
           </section>
         </main>

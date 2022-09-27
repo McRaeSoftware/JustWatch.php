@@ -22,31 +22,32 @@
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <?php
+            // displaying username
             if(isset($_SESSION['username'])){
               echo  "<span class='d-none d-md-block dropdown-toggle ps-2'>".$_SESSION['username']."</span>";
             }
            ?>
-            <!-- <span class="d-none d-md-block dropdown-toggle ps-2">Test User</span> -->
           </a><!-- End Profile -->
 
           <!-- User Dropdown -->
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-
+              <!-- Display users status(standard or Admin) or kick unreconised user out -->
              <?php
              if(isset($_SESSION['username']) && $_SESSION['admin'] === false)
              {
                    echo  "<span>".$_SESSION['username']."</span>";
                    echo "<br><span>Standard User</span>";
-              }
-
-              if(isset($_SESSION['username']) && $_SESSION['admin'] === true)
-              {
+              }elseif(isset($_SESSION['username']) && $_SESSION['admin'] === true)
+                {
                    echo  "<h6>".$_SESSION['username']."</h6>";
                    echo "<span>Admin User</span>";
-             }
+                 }elseif(isset($_SESSION['username']) && $_SESSION['admin'] === false)
+              {
+               header('Location: login.php');
+               exit();
+              }
              ?>
-
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -79,7 +80,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="recentlyAdded.php">
+        <a class="nav-link collapsed" href="#">
           <i class="bi bi-grid"></i>
           <span>Recently Added</span>
         </a>

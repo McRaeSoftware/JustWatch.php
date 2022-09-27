@@ -32,8 +32,6 @@ if (isset($_GET['id']))
 {
   $movieid = $_GET['id'];
   include '../Controller/getMovieByID.php';
-
-  echo "<a class='btn btn-outline-info' href='alterMovies.php'>Back</a><br><br>";
   echo "<form class='form-group needs-validation' method='POST' action='../Controller/attemptUpdateMovie.php?movieid=".$movieid."' enctype='multipart/form-data' novalidate>
           <div class='row'>
             <div class='col-md-4'>

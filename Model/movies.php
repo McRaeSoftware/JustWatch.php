@@ -37,7 +37,7 @@
           </nav>
         </div><!-- End Page Title -->
         <?php
-        include 'pageNavigation.php';
+        //include 'pageNavigation.php';
         ?>
 
         <?php
@@ -57,9 +57,10 @@
               // $rows = $totalItems / $perRow;
               // $countPerRow = 0;
               echo "<div class='row'>";
+              echo "<div class='col-4'>";
                 for ($i=0 ; $i < sizeof($movieArray) ; $i++)
                 {
-                  echo "<div class='col'>";
+
                     echo "<div class='card'>";
                       echo "<a href='playMovie.php?id=".$movieArray[$i]->Movie_ID."'> <img src='".$movieArray[$i]->Image_link."'   alt='".$movieArray[$i]->Movie_ID."' onerror=this.src='Images/film.placeholder.poster.jpg'></a>"; // card image
                         echo "<div class='card-body'>";

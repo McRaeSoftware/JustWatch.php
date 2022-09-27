@@ -22,14 +22,10 @@ include 'sidebar.php';
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
-
-
       <div class="row">
-      <div class="col">
-        <div class="card">
+      <div class="col-lg">
           <div class="card-body">
-            <h5 class="card-title">Manage Movies</h5>
+            <h5 class="card-title">Movies</h5>
             <!-- List group With badges -->
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -51,13 +47,11 @@ include 'sidebar.php';
               </li>
             </ul><!-- End List With badges -->
           </div>
-        </div>
       </div>
 
-  <div class="col">
-<div class="card">
+  <div class="col-lg">
 <div class="card-body">
-  <h5 class="card-title">Manage Series</h5>
+  <h5 class="card-title">Series</h5>
 
   <!-- List group With badges -->
   <ul class="list-group">
@@ -78,8 +72,6 @@ include 'sidebar.php';
       <a button type="button" class='btn btn-danger' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove Series" href='#'><i class="bi bi-exclamation-octagon"></i></button></a>
     </li>
   </ul><!-- End List With badges -->
-
-  </div>
   </div>
   </div>
   </div>

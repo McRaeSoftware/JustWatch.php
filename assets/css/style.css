@@ -202,11 +202,15 @@ h6 {
 
 /* Card */
 .card {
-
+  width: 14rem;
   margin-bottom: 30px;
   border: none;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+.card-img-viewMovie{
+  height: 24rem;
+  width: 20rem;
 }
 
 .card-header,
@@ -235,8 +239,8 @@ h6 {
   padding: 0 20px 20px 20px;
 }
 .card img{
-  height: 24rem ;
-  width: 18rem;
+  height: 18rem ;
+  width: 14rem;
 }
 .card-img-hover {
   opacity: 1;
