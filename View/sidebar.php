@@ -80,13 +80,13 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="recentlyAddedMovies.php">
           <i class="bi bi-grid"></i>
           <span>Recently Added</span>
         </a>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="page-underconstruction.php">
+        <a class="nav-link collapsed" href="watchList.php">
           <i class="bi bi-bookmark-star"></i>
           <span>Watch List</span>
         </a>

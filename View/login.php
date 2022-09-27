@@ -13,11 +13,11 @@
           <div class="container">
             <div class="row justify-content-center">
               <!-- Content -->
-              <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
-                <div class="d-flex justify-content-center py-4 pt-4 pb-2">
+              <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center">
+                <div class="d-flex justify-content-center py-1 pt-4 ">
                     <img src="Images/testlogoSmall.png" alt="">
                 </div>
-                  <h4 class="card-title text-center pb-0 fs-4">Login to Your Account</h4>
+                  <h4 class="card-title text-center pb-2 fs-4">Login to Your Account</h4>
                 <div id="loginPage" class="col-lg no-gutters">
                   <?php //Error Reporting for the user
                   if(isset($_GET['error']))
