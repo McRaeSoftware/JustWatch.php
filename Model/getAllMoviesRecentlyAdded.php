@@ -12,7 +12,7 @@ function GetAllMoviesRecentlyAdded($page)
 
   $sql ="SELECT  *
         FROM    movie
-        WHERE   date_added BETWEEN CURDATE() - INTERVAL 3 DAY AND CURDATE() ORDER BY Year desc, Title asc LIMIT ".$offset.", ".$amountPerPage;
+        WHERE   date_added BETWEEN CURDATE() - INTERVAL 30 DAY AND CURDATE() ORDER BY Year desc, Title asc LIMIT ".$offset.", ".$amountPerPage;
 
   $stmt = $connection->prepare($sql);
   $result = $stmt->fetch();

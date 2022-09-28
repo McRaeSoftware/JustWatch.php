@@ -1,5 +1,21 @@
+
+<!-- testing
+if($_GET['toggle_id']){
+    //$_GET['toggle_id'] = the ID of the line to modify
+    //Use the same script as the form handler
+
+
+$sql = "SELECT * FROM movies ORDER BY year DESC LIMIT WHERE Genre LIKE "%genre%"";
+
+
+}
+
+
+ -->
+
+
+
       <form>
-          <div class="card">
             <div class="card-body">
               <h5 class="card-title">Filter & Sort Search</h5>
 
@@ -143,6 +159,4 @@
                   </div>
                 </div>
               </div><!-- End Accordion without outline borders -->
-
-            </div>
       </form>

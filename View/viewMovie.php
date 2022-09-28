@@ -24,8 +24,22 @@ require '../Controller/StringManipulation.php';
       </div><!-- End Page Title -->
 
       <section class="section">
-        <div class="row">
-          <div class='col-md-4 pl-5'>
+        <!-- Movie Screen -->
+        <div class="row pb-5">
+          <div class="embed-responsive embed-responsive-16by9">
+            <?php
+            echo "<video src='".$movieArray->Video_link."' type='video/mp4' autoplay controls>";
+            echo "<track src='".substr($movieArray->Video_link, 0, -4).".vtt' kind='subtitles' srclang='en' label='default' default>";
+            echo "<track src='".substr($movieArray->Video_link, 0, -4).".vtt' kind='subtitles' srclang='en' label='English'>";
+            echo "</video>"
+            ?>
+          </div>
+        </div><!-- End Movie Screen -->
+
+
+
+        <div class="row "><!-- Movie Content -->
+          <div class='col-md-4 pl-5 '>
             <div class='card-body '>
               <?php
               echo " <form class='form-group needs-validation' method='POST' action='../Controller/attemptUpdateMovie.php?movieid=".$movieid."' enctype='multipart/form-data' novalidate>
@@ -47,10 +61,10 @@ require '../Controller/StringManipulation.php';
 
                   <div class="col-lg">
                     <!-- TODO: code up buttons -->
-                    <button type="button" href= "playMovie.php" class="btn btn-primary"><i class="bi bi-play-circle mr-1"></i>Play Movie</button>
+                    <!-- <button type="button" href= "playMovie.php" class="btn btn-primary"><i class="bi bi-play-circle mr-1"></i>Play Movie</button> -->
                     <button type="button" class="btn btn-success"><i class="bi bi-bookmark-star mr-1"></i>Watch List</button>
                     <?php
-                  //echo "<button type='button' href='playMovie.php' class='btn btn-primary'><i class='bi bi-play-circle mr-1'></i> Play Movie</button>";
+                  //echo "<button type='button' href='playMovie.php?id=".$movieArray[$i]->Movie_ID."' class='btn btn-primary'><i class='bi bi-play-circle mr-1'></i> Play Movie</button>";
                 //  echo '<button type="button" class="btn btn-success"><i class="bi bi-star me-1"></i>Add To Watch List</button>';
                   echo "<h5 class='movieTitle pt-3'><b>Year: </b>".$movieArray->Year."";
                   echo "<h5 class='movieTitle'><b>Runtime: </b>".$movieArray->Runtime."";
