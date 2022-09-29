@@ -3,6 +3,7 @@
 Description: Navigation bar at the top of each page.
 Author: David McRae, Oliver Dickens
 */
+require '../Model/navbarStyle.css';
 ?>
 <nav class="navbar d-flex d-inline no-gutters row">
   <div class ="col" id="top">
@@ -70,7 +71,7 @@ Author: David McRae, Oliver Dickens
   <div id="pcSearch" class="col-10 row no-gutters justify-content-center">
     <form class="form-inline col-10" method="GET">
       <input class="form-control col-9 mr-1" type="search" placeholder="Search by Title" name="filterByTitle">
-      <button class="btn btn-danger col-2 " type="submit">Search</button>
+      <button class="btn btn-outline-info col-2 " type="submit">Search</button>
     </form>
   </div>
 

@@ -1,0 +1,132 @@
+<style>
+/* navbar essentials*/
+.navbar
+{
+  background-color: var(--secondaryBackgroundColour);
+  color:white;
+  z-index:100;
+  padding: 0;
+}
+.form-control:focus:hover
+{
+  background-color: var(--primaryBackgroundColour);
+}
+.form-control
+{
+  background-color: var(--primaryBackgroundColour);
+}
+.custom-select
+{
+  background-color: var(--primaryBackgroundColour);
+}
+#inputGroupPrepend
+{
+  background-color: var(--secondaryBackgroundColour);
+}
+
+.list-group-item
+{
+  width:100%;
+  margin: 0;
+  padding: 20;
+  border: none;
+  min-height: 5rem;
+  background: var(--secondaryBackgroundColour);
+  filter: grayscale(0%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.list-group-item span
+{
+  text-align: center;
+}
+
+.nav-link
+{
+  color:white;
+  padding: none;
+}
+
+.nav-link:hover
+{
+  color: var(--primaryColour);
+}
+
+.list-group-item i
+{
+  color: var(--text-secondary);
+}
+.list-group-item span
+{
+  color: var(--text-secondary);
+}
+
+.list-group-item:hover
+{
+  filter: grayscale(0%) opacity(1);
+  background: var(--primaryBackgroundColour);
+}
+
+.logo
+{
+  background-color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.3ch;
+  width: 100%;
+  padding: 1rem;
+}
+
+.sideBar
+{
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  display: none;
+}
+
+#top:a
+{
+  font-size: 1.5rem;
+}
+
+.logo i
+{
+  transform: rotate(0deg);
+  transition: var(--transition-speed);
+  text-color: white;
+  color: white;
+}
+
+.logo-text
+{
+  display: inline;
+  transition: var(--transition-speed);
+}
+
+.navbar:hover .logo i
+{
+  transform: rotate(-180deg);
+}
+
+/* Display no mobile search as this will only display on mobile screen sizes */
+#mobileSearch
+{
+  display:none;
+}
+
+/* Small screens mobile */
+@media only screen and (max-width: 1062px)
+{
+  #pcSearch
+  {
+    display:none;
+  }
+
+  #mobileSearch
+  {
+    display:block;
+  }
+}
+</style>

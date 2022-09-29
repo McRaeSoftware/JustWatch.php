@@ -1,14 +1,30 @@
 <?php
 if(!isset($_GET['page']))
 {
-  $page = 1;
+  $currentPage = 1;
 }
 else
 {
-  $page = $_GET['page'];
+  $currentPage = $_GET['page'];
 }
+include '../Controller/countMovies.php';
+
+$moviesPerPage = 50;
+$fullPages = intdiv($count, $moviesPerPage);
+$moviesOnLastPage = $count % $moviesPerPage;
+if($moviesOnLastPage > 0)
+{
+  $lastPage = $fullPages + 1;
+}
+else
+{
+  $lastPage = $fullPages;
+}
+
+
 $url = $_SERVER['REQUEST_URI'];
-if(substr( $url, 0, 34 ) === "/Site/JustWatchphp/View/movies.php")
+//if(substr( $url, 0, 34 ) === "/Site/JustWatchphp/View/movies.php")
+if(substr( $url, 0, 29 ) === "/JustWatchphp/View/movies.php")
 {
   // MOVIES PAGE
     echo "
@@ -16,11 +32,11 @@ if(substr( $url, 0, 34 ) === "/Site/JustWatchphp/View/movies.php")
       <ul class='pagination justify-content-center'>
         <li class='page-item'>
           ";
-          if($page == 1)
+          if($currentPage == 1)
           {
             //TODO:remove sweary words haha
             echo "
-            <a class='page-link btn disabled' href='movies.php?page=".($page -1)."' aria-label='Next'>
+            <a class='page-link btn disabled' href='movies.php?page=".($currentPage -1)."' aria-label='Next'>
             <span>Previous</span>
             </a>
             ";
@@ -28,28 +44,46 @@ if(substr( $url, 0, 34 ) === "/Site/JustWatchphp/View/movies.php")
           else
           {
             echo "
-            <a class='page-link' href='movies.php?page=".($page -1)."' aria-label='Previous'>
+            <a class='page-link' href='movies.php?page=".($currentPage -1)."' aria-label='Previous'>
             <span>Previous</span>
             </a>
             ";
           }
-          // TODO check maximum number of pages
-        echo "
-        </li>
-        <li class='page-item'><a class='page-link' href='movies.php?page=1'>1</a></li>
-        <li class='page-item'><a class='page-link' href='movies.php?page=".$page."'>".$page."</a></li>
-        <li class='page-item'><a class='page-link' href='movies.php?page=".($page +1)."'>".($page +1)."</a></li>
-        <li class='page-item'><a class='page-link' href='movies.php?page=".($page +2)."'>".($page +2)."</a></li>
-        <li class='page-item'><a class='page-link' href='movies.php?page=".($page +3)."'>".($page +3)."</a></li>
-        <li class='page-item'><a class='page-link' href='movies.php?page=".($page +4)."'>".($page +4)."</a></li>
-        <li class='page-item'><a class='page-link' href='movies.php?page=".($page +5)."'>".($page +5)."</a></li>
-        <li class='page-item'>
-        ";
 
-        if($page >= 20)
+          $page = $currentPage;
+
+          if($currentPage > 2)
+          {
+            $page = $currentPage -2;
+            echo "<li class='page-item'><a class='page-link' href='movies.php?page=".$page."'>".$page."</a></li>";
+            $page = $currentPage -1;
+            echo "<li class='page-item'><a class='page-link' href='movies.php?page=".$page."'>".$page."</a></li>";
+          }
+          else if($currentPage > 1)
+          {
+            $page = $page -1;
+            echo "<li class='page-item'><a class='page-link' href='movies.php?page=".$page."'>".$page."</a></li>";
+          }
+
+          echo "<li class='page-item disabled'><a class='page-link' href='movies.php?page=".$currentPage."'>".$currentPage."</a></li>";
+
+          if($currentPage < $fullPages && $lastPage > $fullPages)
+          {
+            $page = $currentPage +1;
+            echo "<li class='page-item'><a class='page-link' href='movies.php?page=".$page."'>".$page."</a></li>";
+            $page = $currentPage +2;
+            echo "<li class='page-item'><a class='page-link' href='movies.php?page=".$page."'>".$page."</a></li>";
+          }
+          else if($currentPage == $fullPages && $lastPage > $fullPages)
+          {
+            $page = $currentPage +1;
+            echo "<li class='page-item'><a class='page-link' href='movies.php?page=".$page."'>".$page."</a></li>";
+          }
+
+        if($currentPage >= $lastPage)
         {
           echo "
-          <a class='page-link btn disabled' href='movies.php?page=".($page +1)."' aria-label='Next'>
+          <a class='page-link btn disabled' href='movies.php?page=".($currentPage +1)."' aria-label='Next'>
             <span>Next</span>
           </a>
           ";
@@ -57,7 +91,7 @@ if(substr( $url, 0, 34 ) === "/Site/JustWatchphp/View/movies.php")
         else
         {
           echo "
-          <a class='page-link' href='movies.php?page=".($page +1)."' aria-label='Next'>
+          <a class='page-link' href='movies.php?page=".($currentPage +1)."' aria-label='Next'>
             <span>Next</span>
           </a>
           ";
@@ -76,10 +110,10 @@ else if(substr( $url, 0, 40 ) === "/Site/JustWatchphp/View/updateMovies.php")
     <ul class='pagination justify-content-center'>
       <li class='page-item'>
         ";
-        if($page == 1)
+        if($currentPage == 1)
         {
           echo "
-          <a class='page-link btn disabled' href='updateMovies.php?page=".($page -1)."' aria-label='nob'>
+          <a class='page-link btn disabled' href='updateMovies.php?page=".($currentPage -1)."' aria-label='nob'>
           <span>Previous</span>
           </a>
           ";
@@ -87,7 +121,7 @@ else if(substr( $url, 0, 40 ) === "/Site/JustWatchphp/View/updateMovies.php")
         else
         {
           echo "
-          <a class='page-link' href='updateMovies.php?page=".($page -1)."' aria-label='Dick'>
+          <a class='page-link' href='updateMovies.php?page=".($currentPage -1)."' aria-label='Dick'>
           <span>Previous</span>
           </a>
           ";
@@ -96,18 +130,18 @@ else if(substr( $url, 0, 40 ) === "/Site/JustWatchphp/View/updateMovies.php")
       echo "
       </li>
       <li class='page-item'><a class='page-link' href='updateMovies.php?page=1'>1</a></li>
-      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".$page."'>".$page."</a></li>
-      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($page +1)."'>".($page +1)."</a></li>
-      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($page +2)."'>".($page +2)."</a></li>
-      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($page +3)."'>".($page +3)."</a></li>
-      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($page +4)."'>".($page +4)."</a></li>
-      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($page +5)."'>".($page +5)."</a></li>
+      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".$currentPage."'>".$currentPage."</a></li>
+      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($currentPage +1)."'>".($currentPage +1)."</a></li>
+      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($currentPage +2)."'>".($currentPage +2)."</a></li>
+      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($currentPage +3)."'>".($currentPage +3)."</a></li>
+      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($currentPage +4)."'>".($currentPage +4)."</a></li>
+      <li class='page-item'><a class='page-link' href='updateMovies.php?page=".($currentPage +5)."'>".($currentPage +5)."</a></li>
       <li class='page-item'>
       ";
-      if($page >= 20)
+      if($currentPage >= 20)
       {
         echo "
-        <a class='page-link btn disabled' href='updateMovies.php?page=".($page +1)."' aria-label='Next'>
+        <a class='page-link btn disabled' href='updateMovies.php?page=".($currentPage +1)."' aria-label='Next'>
           <span>Next</span>
         </a>
         ";
@@ -115,7 +149,7 @@ else if(substr( $url, 0, 40 ) === "/Site/JustWatchphp/View/updateMovies.php")
       else
       {
         echo "
-        <a class='page-link' href='updateMovies.php?page=".($page +1)."' aria-label='Next'>
+        <a class='page-link' href='updateMovies.php?page=".($currentPage +1)."' aria-label='Next'>
           <span>Next</span>
         </a>
         ";
@@ -126,7 +160,8 @@ else if(substr( $url, 0, 40 ) === "/Site/JustWatchphp/View/updateMovies.php")
   </div>
   ";
 }
-else {
+else
+{
   echo "Only one Page";
 }
 ?>
