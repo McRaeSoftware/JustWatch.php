@@ -1,5 +1,5 @@
 <!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
+<footer id="footer" class="footer static-bottom">
   <div class="copyright">
     <br> DNS server by ©<a href="http://freedns.afraid.org/">Free DNS</a><br>
     &copy; Copyright <strong><span>JustWatch</span></strong>.
