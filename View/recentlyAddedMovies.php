@@ -38,7 +38,7 @@
 
             <!-- <div class="col-lg-6"> -->
               <?php
-              //include 'pageNavigation.php'
+              include 'pageNavigation.php'
               //include '../Controller/getPagination.php';
               ?>
               <!-- </div> -->
