@@ -13,7 +13,8 @@
 
   include '../Controller/getSeasons.php';
   include 'header.php';
-  include 'navbar.php';
+  // include 'navbar.php';
+include 'sidebar.php';
   ?>
 <!-- </head> -->
 <body>

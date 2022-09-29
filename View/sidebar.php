@@ -86,7 +86,7 @@
         </a>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="watchList.php">
+        <a class="nav-link collapsed" href="#">
           <i class="bi bi-bookmark-star"></i>
           <span>Watch List</span>
         </a>

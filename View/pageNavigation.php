@@ -128,6 +128,6 @@ else if(substr( $url, 0, 40 ) === "/Site/JustWatchphp/View/updateMovies.php")
   ";
 }
 else {
-  echo "Only one Page";
+  echo "Error: Can only Display One Page";
 }
 ?>
