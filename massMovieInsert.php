@@ -7,6 +7,7 @@ $dir = 'MoviesToBeAdded';
 $files = scandir($dir);
 $permissionAccess = "0777";
 $movieFolder = "/media/pi/server.pii.at/Site/JustWatchphp/View/Movies/";
+$errorFolder = "/media/pi/server.pii.at/Site/JustWatchphp/ErrorFilesManuallyFix/";
 $year = "";
 $quality = "";
 
@@ -62,6 +63,7 @@ else
           if($title == "")
           {
             echo "</br> Error with Movie Title -> ".$files[$i]."</br>";
+            rename($dir.'/'.$files[$i], $errorFolder.$files[$i]);
           }
           else
           {
@@ -133,6 +135,7 @@ else
                   //$Error = "Something is Wrong with IMDB right now.";
                   //header('location: massMovieInsert.php?error='.$Error);
                   echo "IMDB has an issue with -> ".$title."</br>";
+                  rename($dir.'/'.$files[$i], $errorFolder.$files[$i]);
                 }
 
                 $query = $connection->prepare
@@ -187,7 +190,8 @@ else
         }
         else
         {
-          echo "The file is missing Year and quality";
+          echo "$files[$i] -> The file is missing Year and quality </br>";
+          rename($dir.'/'.$files[$i], $errorFolder.$files[$i]);
         }
       }
       catch(Exception $e)
