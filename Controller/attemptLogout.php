@@ -5,8 +5,9 @@
 
     Author: David McRae
 */
-include '../Model/logout.php';
+include 'UserController.php';
 
 session_start();
-AttemptLogOut();
+$response = Logout();
+header('location: ../View/login.php?msg='.$response->message);
 ?>

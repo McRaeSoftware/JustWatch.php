@@ -39,12 +39,155 @@ include_once 'imdb/imdb.class.php';
 // 'all', default
 
 //$searchCriteria = searchParameters($baseURL, $title, $year, $type);
-
+//MoveFileMovieToCorrectFolder();
 //testDirSearch();
 echo "</br></br>";
+testIMDB();
 echo "</br></br>";
-
 //moveAllFiles("/media/pi/server.pii.at/Site/JustWatchphp/View/Movies/");
+
+
+function MoveFileMovieToCorrectFolder()
+{
+
+  $dir = 'MoviesToBeAdded';
+  $files = scandir($dir);
+
+  for ($i=0 ; $i < sizeof($files) ; $i++)
+  {
+    if($i > 1)
+    {
+      // Movie file must contain year and quality to begin inserting.
+      if(preg_match('/[0-9]{4}[.| ](1080p|720p|2160p)/', $files[$i]))
+      {
+        str_replace(' ', '.', $files[$i]);
+        $parts = explode(".", $files[$i]);
+
+        // Use This line to remove specific words from the file names
+        $parts = array_diff($parts, ["EXTENDED", "UNRATED"]);
+
+        for($j=0 ; $j < sizeof($parts) ; $j++)
+        {
+
+          if(preg_match('/^[0-9]{4}$/', $parts[$j]))
+          {
+            $year = $parts[$j];
+            $parts[$j] = '';
+          }
+
+          if(preg_match('/(1080p|720p|2160p)/', $parts[$j]))
+          {
+            $quality = $parts[$j];
+            $parts[$j] = '';
+          }
+        }
+
+        $yearAndQuality = ".".$year.".".$quality;
+        $endOfTitle = strpos($files[$i], $yearAndQuality);
+        $titleWithDots = substr($files[$i], 0, $endOfTitle);
+        $title = trim(str_replace('.', ' ', $titleWithDots));
+        $titleNoSpaces = trim(str_replace('.', '', $titleWithDots));
+
+        $extension = substr($files[$i], -4);
+        $startOfExtension = strpos($files[$i], $extension);
+        $endOfTitle + strlen($yearAndQuality);
+        $newFileName = $titleWithDots.$yearAndQuality.$extension;
+
+        $video = "Movies/".$titleNoSpaces.'/'.$newFileName;
+
+        if(!file_exists($movieFolder."/".$titleNoSpaces."/"))
+        {
+          mkdir($movieFolder."/".$titleNoSpaces."/", $permissionAccess);
+        }
+        echo "file ".$i." ---> ".$files[$i]."</br>";
+        echo "title no spaces  ".$i." ---> ".$titleNoSpaces."</br></br>";
+        echo "Path ".$video."</br></br>";
+        //rename($dir.'/'.$files[$i], $movieFolder."/".$titleNoSpaces."/".$newFileName);
+        //rename($movieFolder."/".$titleNoSpaces."/".$newFileName, $video);
+        rename($dir."/".$files[$i], "View/".$video);
+        echo $title." <-------- Succesfully Moved "."</br>";
+      }
+    }
+  }
+}
+
+function addQulityToFileName()
+{
+
+  $dir = 'MoviesToBeAdded';
+  $files = scandir($dir);
+
+  for ($i=0 ; $i < sizeof($files) ; $i++)
+  {
+    $foundQuality = false;
+    if($i > 1)
+    {
+      if(!preg_match('/[0-9]{4}[.| ](1080p|720p|2160p)/', $files[$i]))
+      {
+        if(preg_match('/[0-9]{4}/', $files[$i]))
+        {
+          echo"</br>";
+          echo "FILE --> ".$files[$i];echo"</br>";
+          echo"</br>";
+          $oldFileName = $files[$i];
+          $removedCharacters = array(" ", "(", ")","_", "..");
+          $files[$i] = str_replace($removedCharacters, '.', $files[$i]);
+
+          $removedCharacters = array("..");
+          $files[$i] = str_replace($removedCharacters, '.', $files[$i]);
+
+          $parts = explode(".", $files[$i]);
+
+          // Use This line to remove specific words from the file names
+          //$parts = array_diff($parts, ["EXTENDED", "UNRATED"]);
+          echo "parts ----------- </br>";
+          for($j=0 ; $j < sizeof($parts) ; $j++)
+          {
+            echo"</br>";
+            echo $parts[$j];
+            if(preg_match('/^[0-9]{4}$/', $parts[$j]))
+            {
+              $year = $parts[$j];
+              $parts[$j] = '';
+            }
+            if(preg_match('/(1080p|720p|2160p|360p)/', $parts[$j]))
+            {
+              echo"</br>";
+              echo "Quality was found for ------------------------>".$files[$i]."<br/><br/>";
+              $foundQuality = true;
+            }
+          }
+          echo "end parts ----------- </br>";
+
+          if(!$foundQuality)
+          {
+            $quality = "1080p";
+            $yearAndQuality = ".".$year.".".$quality;
+            $files[$i] = str_replace($year, $yearAndQuality, $files[$i]);
+
+            $removedCharacters = array("..");
+            $files[$i] = str_replace($removedCharacters, '.', $files[$i]);
+
+            $endOfTitle = strpos($files[$i], $yearAndQuality);
+            $titleWithDots = substr($files[$i], 0, $endOfTitle);
+            $title = trim(str_replace('.', ' ', $titleWithDots));
+            $titleNoSpaces = trim(str_replace('.', '', $titleWithDots));
+
+            $extension = substr($files[$i], -4);
+            $startOfExtension = strpos($files[$i], $extension);
+            $endOfTitle + strlen($yearAndQuality);
+            $newFileName = $titleWithDots.$yearAndQuality.$extension;
+
+            echo "Old File Name --->".$oldFileName."<br/>";
+            echo "New File Name --->".$files[$i]."<br/><br/>";
+            // Rename Files with quality added after year.
+            // rename($dir.'/'.$oldFileName, $dir.'/'.$files[$i]);
+          }
+        }
+      }
+    }
+  }
+}
 
 function moveAllFiles($dir)
 {
@@ -106,12 +249,11 @@ function testExtended()
   var_dump($array);
 }
 
-
 function testIMDB()
 {
-  $title = "Goofy Movie";
+  $title = "alice";
   $searchFor = "movie";
-  $year = "2000";
+  $year = "2022";
 
   $IMDB = new IMDB($title, null, $searchFor);
 

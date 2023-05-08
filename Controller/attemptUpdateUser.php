@@ -10,11 +10,9 @@ if(!isset($_POST["updateUserSubmit"]))
 }
 else
 {
-  include '../Model/updateUser.php';
+  include 'UserController.php';
 
   session_start();
-  $userid = $_SESSION['userid'];
-  $existingUsername = $_SESSION['username'];
-  AttemptUpdateUser($existingUsername, $userid);
+  UpdateUser($_SESSION['userid'], $_SESSION['username']);
 }
 ?>

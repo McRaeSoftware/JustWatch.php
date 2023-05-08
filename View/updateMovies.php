@@ -26,7 +26,7 @@ if (isset($_GET['id']))
   $movieid = $_GET['id'];
   include '../Controller/getMovieByID.php';
 
-  echo "<a class='btn btn-outline-info' href='alterMovies.php'>Return</a><br><br>";
+  echo "<a class='btn btn-outline-info' href='updateMovies.php'>Return</a><br><br>";
   echo "<form class='form-group needs-validation' method='POST' action='../Controller/attemptUpdateMovie.php?movieid=".$movieid."' enctype='multipart/form-data' novalidate>
           <div class='row'>
             <div class='col-md-4'>
@@ -42,6 +42,13 @@ if (isset($_GET['id']))
                 <span class='input-group-text' id='inputGroupPrepend'>Movie ID</span>
               </div>
               <input class='form-control' type='text' name='index' value='".$movieArray->Movie_ID."' readonly>
+            </div>
+
+            <div class='form-group input-group form-group-lg'>
+              <div class='input-group-prepend'>
+                <span class='input-group-text' id='inputGroupPrepend'>IMDB ID</span>
+              </div>
+              <input class='form-control' type='text' name='imdbID' value=''>
             </div>
 
             <div class='form-group input-group' form-group-lg>

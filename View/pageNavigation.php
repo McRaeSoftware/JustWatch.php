@@ -13,6 +13,8 @@ $moviesPerPage = 50;
 $fullPages = intdiv($count, $moviesPerPage);
 $moviesOnLastPage = $count % $moviesPerPage;
 
+echo "</br> Movie Count: ".$count."</br>";
+
 if($moviesOnLastPage > 0)
 {
   $lastPage = $fullPages + 1;
@@ -23,8 +25,8 @@ else
 }
 
 $url = $_SERVER['REQUEST_URI'];
-//if(substr( $url, 0, 34 ) === "/Site/JustWatchphp/View/movies.php")
-if(substr( $url, 0, 29 ) === "/JustWatchphp/View/movies.php")
+//if(substr( $url, 0, 31 ) === "/Site/JustWatch/View/movies.php")
+if(substr( $url, 0, 26 ) === "/JustWatch/View/movies.php")
 {
   // MOVIES PAGE
   echo "

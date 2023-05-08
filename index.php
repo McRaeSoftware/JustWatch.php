@@ -20,7 +20,7 @@ body
 .container
 {
   background-color: #23232e;
-  margin-top: 40vh;
+  margin-top: 30vh;
   letter-spacing: 1px;
 }
 
@@ -46,8 +46,10 @@ body
 
 <body>
   <div class="container text-center">
-      <h1>JustWatch</h1>
-      <a class="cd-btn mt-2" href="View/login.php" data-type="page-transition">Login</a>
-    </div>
+    <h1>JustWatch</h1>
+    <a class="cd-btn mt-2" href="View/login.php" data-type="page-transition">Login</a>
+    <br />
+    <a class="cd-btn" href="View/register.php" data-type="page-transition">Register</a>
+  </div>
 </body>
 </html>

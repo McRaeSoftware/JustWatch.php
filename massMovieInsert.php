@@ -26,25 +26,23 @@ else
         // Movie file must contain year and quality to begin inserting.
         if(preg_match('/[0-9]{4}[.| ](1080p|720p|2160p)/', $files[$i]))
         {
-          str_replace(' ', '.', $files[$i]);
+          $removedCharacters = array(" ", "(", ")","_", "..");
+          $files[$i] = str_replace($removedCharacters, '.', $files[$i]);
           $parts = explode(".", $files[$i]);
-
-          // Use This line to remove specific words from the file names
-          $parts = array_diff($parts, ["EXTENDED", UNRATED]);
 
           for($j=0 ; $j < sizeof($parts) ; $j++)
           {
+            if(preg_match('/^[0-9]{4}$/', $parts[$j]))
+            {
+              $year = $parts[$j];
+              $parts[$j] = '';
+            }
 
-              if(preg_match('/^[0-9]{4}$/', $parts[$j]))
-              {
-                $year = $parts[$j];
-                $parts[$j] = '';
-              }
-              if(preg_match('/(1080p|720p|2160p)/', $parts[$j]))
-              {
-                $quality = $parts[$j];
-                $parts[$j] = '';
-              }
+            if(preg_match('/(1080p|720p|2160p|360p)/', $parts[$j]))
+            {
+              $quality = $parts[$j];
+              $parts[$j] = '';
+            }
           }
 
           $yearAndQuality = ".".$year.".".$quality;
@@ -52,7 +50,6 @@ else
           $titleWithDots = substr($files[$i], 0, $endOfTitle);
           $title = trim(str_replace('.', ' ', $titleWithDots));
           $titleNoSpaces = trim(str_replace('.', '', $titleWithDots));
-
           $extension = substr($files[$i], -4);
           $startOfExtension = strpos($files[$i], $extension);
           $endOfTitle + strlen($yearAndQuality);
@@ -118,7 +115,7 @@ else
                 if($IMDB->isReady)
                 {
                     $description = $IMDB->getPlot();
-                    if(strtolower($description) == "n/a" || empty($description) || is_null(£description))
+                    if(strtolower($description) == "n/a" || empty($description) || is_null($description))
                     {
                       $description = $IMDB->getDescription();
                     }
@@ -175,7 +172,6 @@ else
                   rename($dir.'/'.$files[$i], $movieFolder."/".$titleNoSpaces."/".$newFileName);
                   rename($movieFolder."/".$titleNoSpaces."/".$newFileName, $video);
 
-                  // video = Movies/AnExtremelyGoofyMovie/An.Extremely.Goofy.Movie.2000.1080p.mp4
                 }
                 else
                 {
@@ -190,8 +186,8 @@ else
         }
         else
         {
-          echo "$files[$i] -> The file is missing Year and quality </br>";
-          rename($dir.'/'.$files[$i], $errorFolder.$files[$i]);
+         echo "$files[$i] -> The file is missing Year and quality </br>";
+         rename($dir.'/'.$files[$i], $errorFolder.$files[$i]);
         }
       }
       catch(Exception $e)

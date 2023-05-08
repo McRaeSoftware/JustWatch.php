@@ -1,9 +1,9 @@
 <script>
 /*
-    Description: javascript used to highlight empty fields in any forms.
+  Description: javascript used to highlight empty fields in any forms.
 
-    Author: David McRae
- */
+  Author: David McRae
+*/
 //JavaScript for disabling form submissions if there are invalid fields
 (function()
 {

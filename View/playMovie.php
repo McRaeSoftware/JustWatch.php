@@ -4,11 +4,19 @@
 /*
 Description: this is the video player for movies and tv shows
 */
-Include '../Controller/session.php';
-Include 'header.php';
-Include 'navbar.php';
-Include '../Controller/getMovieByID.php';
-require '../Controller/StringManipulation.php';
+if(!isset($_GET['filterByTitle']))
+{
+  Include '../Controller/session.php';
+  Include 'header.php';
+  Include 'navbar.php';
+  Include '../Controller/getMovieByID.php';
+  require '../Controller/StringManipulation.php';
+}
+else
+{
+  $movieFilter = $_GET['filterByTitle'];
+  header('location: ../View/movies.php?filterByTitle='.$movieFilter);
+}
 ?>
 <body>
   <div class="container text-center mt-5 mb-3 pt-3">

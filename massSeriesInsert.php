@@ -8,7 +8,6 @@ $files = scandir($dir);
 // Check file name for Season and episodes
 //add file to season folder
 
-
 function formatFileNames($dir, $files)
 {
   for ($i=0 ; $i < sizeof($files) ; $i++)

@@ -42,81 +42,24 @@
         </div>
 
   <div style="display:none;" id="filterDiv" class="container mt-2 row col-12 no-gutters">
-  <form class="m-2 row text-center justify-content-center" method="POST">
-      <div class="btn-group-toggle" data-toggle="buttons">
-
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Action
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Adventure
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Animation
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Comedy
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Crime
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">DC
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Drama
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Fantasy
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Family
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Marvel
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Romance
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Sci-Fi
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Thriller
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">History
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Documentary
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Mystery
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Horror
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Biography
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Music
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Sport
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">War
-        </label>
-        <label class="btn btn-outline-info m-2">
-          <input type="checkbox" name="genre[]" checked="">Western
-        </label>
-
+    <form class="form-group col-12" method="POST" action="">
+        <div class="form-group input-group col-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text highlightText" id="inputGroupPrepend">Genre</span>
+          </div>
+          <select class="custom-select" id="genreSelect" name="ageRating" multiple>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Family">Family</option>
+              <option value="Marvel">Marvel</option>
+              <option value="Horror">Horror</option>
+          </select>
+          <div class="invalid-feedback">Selecty a Genre</div>
+        </div>
+        <input class="btn btn-outline-info m-2 float-right" type="submit" value="Apply Filter" />
       </div>
-      <button class="btn btn-info m-2" type="submit">Search By Genre</button>
-    </form>
-  </div>
 
+    </form>
   </div>
     <?php
       //Error Reporting for the users
@@ -170,6 +113,7 @@
           include '../Controller/ajaxScript.php';
           include '../Controller/navControl.js';
           include '../Controller/toggleFilter.js';
+          include '../Controller/multiselect.js';
           ?>
     </body>
 <?php

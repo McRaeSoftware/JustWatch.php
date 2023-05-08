@@ -40,6 +40,12 @@ footer
   padding: 0;
 }
 
+.highlightText
+{
+  color:var(--primaryColour);
+}
+
+
 /* Page Navigation  */
 .page-link
 {
