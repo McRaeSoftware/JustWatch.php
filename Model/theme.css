@@ -1,12 +1,11 @@
 /*
-  Description: Custom CSS to override bootstrap CSS files
-  Author: David McRae & Oliver Dickens
+  Description: Custom CSS
+  Author: David McRae
 */
 
-/* Colours and Animation Speed*/
+/*/////////////// Variables ///////////////*/
 :root
 {
-
   --primaryBackgroundColour: #17181c;
   --secondaryBackgroundColour: #2a2c33;
   --primaryColour: #17a2b8;
@@ -18,86 +17,54 @@
   --transition-speed: 600ms;
   --transitionCard-speed: 400ms;
 }
-/* Direct Ovveride of Bootstrap */
-
-/*//////////////////////////////*/
-
+/*/////////////// Variables ///////////////*/
 body
 {
   background-color: var(--primaryBackgroundColour);
   color: var(--primaryTextColour);
   font-family: 'Roboto';
 }
-
+/*/////////////// Text ///////////////*/
 text
 {
   color:var(--primaryTextColour);
 }
-
-footer
-{
-  background-color: var(--secondaryBackgroundColour);
-  padding: 0;
-}
-
 .highlightText
 {
   color:var(--primaryColour);
 }
-
-
+/*/////////////// Text ///////////////*/
 /* Page Navigation  */
 .page-link
 {
   background-color: var(--primaryBackgroundColour);
 }
-
 .page-link:hover
 {
-  background-color: red;
+  background-color:var(--primaryColour);
 }
-
 body .form-control .input-group-text .custom-select
 {
   background-color: var(--primaryBackgroundColour);
 }
-
-footer
-{
-  background-color: var(--secondaryBackgroundColour);
-  padding: 2rem;
-}
-
 .pagination a
 {
   color:var(--primaryColour);
 }
-
 .pagination a:hover
 {
   background-color: var(--primaryColour);
   color: var(--primaryTextColour);
 }
-
 .container
 {
   background-color: var(--primaryBackgroundColour);
 }
-
-/* these are our movie displayed classes*/
-/* these are our movie cards*/
 .card
 {
   background-color: var(--primaryBackgroundColour);
   border:none;
 }
-
-.card img:hover
-{
-  box-shadow: 2px 4px var(--primaryColour);
-}
-
-/* the image*/
 .card img
 {
   box-shadow: 2px 4px var(--secondaryBackgroundColour);
@@ -106,16 +73,16 @@ footer
   min-height: 18rem;
   max-height: 18rem;
 }
-
-/* font below movie*/
 .card-bottom
 {
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
 }
-
-/* these are our play movie screens */
+.card img:hover
+{
+  box-shadow: 2px 4px var(--primaryColour);
+}
 .playVideo
 {
   width:100%;
@@ -126,19 +93,16 @@ footer
   align-items: center;
   margin: 0;
 }
-
 .playVideo video
 {
   width:80%;
 }
-
 .videoPoster img
 {
  border-radius: 0.5rem;
  width: 15rem;
 }
-
-
+/*/////////////// ScreenSize: Medium ///////////////*/
 @media only screen and (max-width: 992px)
 {
   .videoPoster
@@ -146,8 +110,8 @@ footer
     display:none;
   }
 }
-
-/* Small screens mobile */
+/*/////////////// ScreenSize: Medium ///////////////*/
+/*/////////////// ScreenSize: Small ///////////////*/
 @media only screen and (max-width: 450px)
 {
   .list-group-item
@@ -160,7 +124,6 @@ footer
     justify-content: center;
     align-items: center;
   }
-
   .col
   {
     /* min-width: 50%;  this is needed as the boostrap forces it to $row  */
@@ -174,11 +137,15 @@ footer
     max-height: 15rem;
     min-height: 15rem;
   }
-
 }
-
+/*/////////////// ScreenSize: Small ///////////////*/
+footer
+{
+  background-color: var(--secondaryBackgroundColour);
+  padding: 2rem;
+}
 /*--------------------------------------------------*/
-/* CHROME ADDITIONS*/
+/* Google Chrome Support */
 body::-webkit-scrollbar
 {
   width: .5rem;
@@ -191,6 +158,6 @@ body::-webkit-scrollbar-track
 
 body::-webkit-scrollbar-thumb
 {
-  background: red;
+  background:var(--primaryColour);
 }
 /*--------------------------------------------------*/

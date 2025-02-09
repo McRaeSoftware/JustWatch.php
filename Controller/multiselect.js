@@ -13,7 +13,6 @@
               }, false );
       });
     }
-
     multiSelectWithoutCtrl('#genreSelect')
   });
 </script>

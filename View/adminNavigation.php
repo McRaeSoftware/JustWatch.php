@@ -19,22 +19,22 @@ include 'navbar.php';
     <!-- Site Navigation -->
     <div class='row'>
       <div class='col-12'>
-        <a class='btn btn-outline-danger btn-block' href='movies.php'>View Movies</a>
+        <a class='btn btn-outline-info btn-block' href='movies.php'>View Movies</a>
       </div>
     </div>
 
     <h4 class="mt-5">Manage Movies</h4><hr>
     <div class='row'>
       <div class='col-6 mt-5'>
-        <a class='btn btn-outline-danger btn-block' href='insertMovie.php'>Add Movie</a>
+        <a class='btn btn-outline-info btn-block' href='insertMovie.php'>Add Movie</a>
       </div>
       <div class='col-6 mt-5'>
-        <a class='btn btn-outline-danger btn-block' href='updateMovies.php'>Alter Movie</a>
+        <a class='btn btn-outline-info btn-block' href='updateMovies.php'>Alter Movie</a>
       </div>
     </div>
     <div class='row'>
       <div class='col-6 mt-5'>
-        <a class='btn btn-outline-danger btn-block' href='removeMovie.php'>Remove Movie</a>
+        <a class='btn btn-outline-info btn-block' href='removeMovie.php'>Remove Movie</a>
       </div>
     </div>
 
@@ -42,18 +42,18 @@ include 'navbar.php';
     <hr>
     <div class='row'>
       <div class='col-6 mt-5'>
-        <a class='btn btn-outline-danger btn-block' href='insertSeries.php'>Add Series</a>
+        <a class='btn btn-outline-info btn-block' href='insertSeries.php'>Add Series</a>
       </div>
       <div class='col-6 mt-5'>
-        <a class='btn btn-outline-danger btn-block' href='#'>Add Episode</a>
+        <a class='btn btn-outline-info btn-block' href='#'>Add Episode</a>
       </div>
     </div>
     <div class='row'>
       <div class='col-6 mt-5'>
-        <a class='btn btn-outline-danger btn-block' href='#'>Alter Series</a>
+        <a class='btn btn-outline-info btn-block' href='#'>Alter Series</a>
       </div>
       <div class='col-6 mt-5'>
-        <a class='btn btn-outline-danger btn-block' href='#'>Remove Series</a>
+        <a class='btn btn-outline-info btn-block' href='#'>Remove Series</a>
       </div>
     </div>
   </div>

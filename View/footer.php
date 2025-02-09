@@ -1,7 +1,7 @@
 <?php
 /*
   Description: Footer for each page.
-  Author: David McRae, Oliver Dickens
+  Author: David McRae
 */
 ?>
 <!-- footer start -->
